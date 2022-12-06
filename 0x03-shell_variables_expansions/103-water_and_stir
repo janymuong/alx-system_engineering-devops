@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $((WATER+STIR)) | bc -l | awk '{printf "%.3f\n", $0}' | awk '{print "Base bestchol = " $0}'
