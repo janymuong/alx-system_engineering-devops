@@ -1,0 +1,2 @@
+#!/bin/bash
+export num="$((10 * num + ($BINARY[i] - \'0\')))"
