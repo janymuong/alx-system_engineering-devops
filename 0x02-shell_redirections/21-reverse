@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(rev <<<$1)"
+rev
