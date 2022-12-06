@@ -1,2 +1,2 @@
 #!/bin/bash
-export num="printf \"\%0.2f\n\" $T"
+printf "%0.2f\n" $num
