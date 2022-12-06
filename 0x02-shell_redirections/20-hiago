@@ -1,2 +1,2 @@
 #!/bin/bash
-echo ${1//[cC]/}
+echo ${1//[cC]/} | tr --delete
