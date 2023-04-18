@@ -1,1 +1,7 @@
-Intial alx-system_engineering-devops repo for practicing elementary shell scripting
+# Basic `shell` scripting
+
+Example syntax: a bash script that prints directories, one per line without duplicates that contain one or more files with a '`.tf`' extension.
+```bash
+#!/bin/bash
+find . -type f -name '*.tf' -printf '%h\n' | sort -u
+```
