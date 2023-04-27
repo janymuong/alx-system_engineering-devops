@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# until loop: script displays "Best School" 10x
+
+count=0
+until [ $count -ge 10 ]; do
+  echo "Best School"
+  count=$((count+1))
+done
