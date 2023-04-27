@@ -4,4 +4,4 @@
 # 	OCCURENCE_NUMBER IP HTTP_CODE
 # 	ordered from the greatest to the lowest number of occurrences
 
-awk '{print $1 " " $9}' apache-access.log | awk '{count[$1 " " $2]++} END {for (ipcode in count) print count[ipcode], ipcode}' | awk '{print $1 " " $2 " " $3}' | sort -rn
+awk '{print $1,$9}' apache-access.log | sort | uniq -c | sort -nr
