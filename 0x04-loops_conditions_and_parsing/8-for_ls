@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# display content of the workdir
+# 	n a list format
+#	only part of the name after the first dash is displayed
+
+list=$(ls -p)
+
+for file in $list; do
+	echo "$file" | cut -d '-' -f2
+done
