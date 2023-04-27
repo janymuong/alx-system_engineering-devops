@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# print username; user id; /home dir-path for the user
+
+while IFS=: read -r username x uid gid x home shell; do
+  echo "$username:$uid:$home"
+done < /etc/passwd
