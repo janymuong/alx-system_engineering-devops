@@ -1,10 +1,12 @@
 ## `bash` - Loops, conditions and parsing
 
 > `loops`, `conditions`, `parsing`, `shell scripting`
+
 ---
 <div align="center">
  <img src="./img/such_awk.jpg" width="400px" height="200px"/>
 </div>
+
 ---
 ### Loops:
 In programming, loops are used to repeat a set of instructions *multiple times until a particular condition is met*. In GNU/Linux, there are various types of loops used in *scripting*, such as `for loop`, `while loop`, and `until loop`.
