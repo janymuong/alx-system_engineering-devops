@@ -43,5 +43,5 @@ This command searches for the pattern "nginx" in the output of the "ps aux" comm
 
 ---
 <div align="center">
- <img src="./img/such_awk.jpg" />
+ <img src="./img/such_awk.jpg" height="300px"/>
 </div>
