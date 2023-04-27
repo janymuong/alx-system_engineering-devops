@@ -42,11 +42,6 @@ www-data  3456  0.0  0.2  23456  7890 ?        S    Mar01   0:01 nginx: worker p
 This command searches for the pattern "nginx" in the output of the "ps aux" command, which lists all the running processes on the system. Pipe into the `grep` program. The output shows two processes related to nginx, along with their process IDs and other information.
 
 ---
-<!--
 <div aligin="center">
  <img src="./img/such_awk.jpg" />
-</div>
--->
-<div align="center">
-![meme-awk](./img/such_awk.jpg)
 </div>
