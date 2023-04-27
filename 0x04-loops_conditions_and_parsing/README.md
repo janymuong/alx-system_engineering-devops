@@ -1,7 +1,11 @@
 ## `bash` - Loops, conditions and parsing
 
 > `loops`, `conditions`, `parsing`, `shell scripting`
-
+---
+<div align="center">
+ <img src="./img/such_awk.jpg" width="400px" height="200px"/>
+</div>
+---
 ### Loops:
 In programming, loops are used to repeat a set of instructions *multiple times until a particular condition is met*. In GNU/Linux, there are various types of loops used in *scripting*, such as `for loop`, `while loop`, and `until loop`.
 For example, a "**for**" loop in **GNU/Linux** is used to iterate over a series of **values**, such as a list of files, and perform the same set of instructions on each value. Here's an example of a for loop in bash:
@@ -40,8 +44,3 @@ root      2345  0.0  0.1  12345  6789 ?        Ss   Mar01   0:00 nginx: master p
 www-data  3456  0.0  0.2  23456  7890 ?        S    Mar01   0:01 nginx: worker process
 ```
 This command searches for the pattern "nginx" in the output of the "ps aux" command, which lists all the running processes on the system. Pipe into the `grep` program. The output shows two processes related to nginx, along with their process IDs and other information.
-
----
-<div align="center">
- <img src="./img/such_awk.jpg" width="400px" height="200px"/>
-</div>
