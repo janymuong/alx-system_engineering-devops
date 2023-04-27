@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # loop for 12 hours; loop for 59 minutes
 
 hour=0
 
-while [ $hour -lt 12 ]; do
+while [ $hour -le 12 ]; do
   echo "Hour: $hour"
 
   for min in $(seq 1 59); do
@@ -11,10 +11,4 @@ while [ $hour -lt 12 ]; do
   done
 
   ((hour++))
-done
-
-# display the last hour, and its minutes
-echo "Hour: 12"
-for min in $(seq 1 59); do
-  echo "$min"
 done
