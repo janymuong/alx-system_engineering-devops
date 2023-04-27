@@ -1,6 +1,6 @@
 ## `bash` - Loops, conditions and parsing
 
-Loops, conditions, and parsing are essential concepts in GNU/Linux programming and scripting. Here's a brief explanation of each of these:
+> `loops`, `conditions`, `parsing`, `shell scripting`
 
 ### Loops:
 In programming, loops are used to repeat a set of instructions *multiple times until a particular condition is met*. In GNU/Linux, there are various types of loops used in *scripting*, such as `for loop`, `while loop`, and `until loop`.
