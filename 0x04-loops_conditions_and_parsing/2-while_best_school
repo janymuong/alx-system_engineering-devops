@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# while loop: script displays text - "Best School" 10x
+
+count=0
+while [ $count -lt 10 ]; do
+    echo "Best School"
+    count=$((count+1))
+done
