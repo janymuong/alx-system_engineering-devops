@@ -7,7 +7,6 @@
  <img src="./gnu_linux/linux.svg" width="150" height="150" />
 </div>
 
----
 ## Processes
 A `process` is an *instance of a program that is currently running* on the system. Each process has a unique identifier called a process ID - `PID` that is used to manage and monitor the process. To view a list of currently running processes, you can use the `ps`/`top`/`pstree` commands with options.
 
@@ -33,7 +32,7 @@ kill 1234
 ```
 > this will send the default signal `SIGTERM` (termination signal) to the process, requesting that it terminate gracefully. if the process does not respond to SIGTERM, you can send a `SIGKILL` (kill signal) to forcefully terminate the process.
 
----
+
 ## `process` Signals
 > system-specific signals: `man 7 signal`, **system library** `signal.h`
 
@@ -49,7 +48,6 @@ kill 1234
 | SIGCONT  | Continue signal, used to resume a suspended process.                                                     |
 
 
----
 ## Signal Handlers - `trap`
 Processes can also handle signals by registering signal handlers. A signal handler is a function that is called when a specific signal is received by the process. The signal handler can then perform a specific action or ignore the signal.
 
