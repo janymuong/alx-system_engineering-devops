@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# indefinitely writes text to the file: /tmp/my_process
+
+touch /tmp/my_process
+while true; do
+    echo "I am alive!" >> /tmp/my_process
+    sleep 2
+done
