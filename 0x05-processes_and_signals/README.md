@@ -1,9 +1,14 @@
-## Processes and Signals 
+<div align="center">
+ <img src="./gnu_linux/gnu.svg" width="150" height="150" />
+ <img src="./gnu_linux/linux.svg" width="150" height="150" />
+</div>
+
+# Processes and Signals 
 > in GNU/Linux <br/>
 > **Processes** and **signals** allow programs to communicate with each other and the **operating system** itself.
 
 ---
-### Processes
+## Processes
 A `process` is an *instance of a program that is currently running* on the system. Each process has a unique identifier called a process ID - `PID` that is used to manage and monitor the process. To view a list of currently running processes, you can use the `ps`/`top`/`pstree` commands with options.
 
 ```bash
@@ -29,7 +34,7 @@ kill 1234
 > this will send the default signal `SIGTERM` (termination signal) to the process, requesting that it terminate gracefully. if the process does not respond to SIGTERM, you can send a `SIGKILL` (kill signal) to forcefully terminate the process.
 
 ---
-### `process` Signals
+## `process` Signals
 > system-specific signals: `man 7 signal`, **system library** `signal.h`
 
 `Signals` are ***software interrupts*** that are sent to processes to notify them of an event or to request a specific action. There are a number of `standard signals`/posix in GNU/Linux. Examples:
@@ -45,7 +50,7 @@ kill 1234
 
 
 ---
-### Signal Handlers - `trap`
+## Signal Handlers - `trap`
 Processes can also handle signals by registering signal handlers. A signal handler is a function that is called when a specific signal is received by the process. The signal handler can then perform a specific action or ignore the signal.
 
 Here's an example shell script that registers a signal handler for the `SIGINT` signal and prints a message when the signal is received:
@@ -65,9 +70,3 @@ while true; do
 done
 ```
 > (script) the `trap` command is used to register the `handle_sigint` **function** as the signal handler for SIGINT. a **while loop** is used to keep the script running until a signal is received. when the script is run, it will print a message every second, and you can send a SIGINT signal by pressing `Ctrl+C`. when the signal is received, the `handle_sigint` function will be called and print a message to the console.
-
-
-<div align="center">
- <img src="./gnu_linux/gnu.svg" width="150" height="150" />
- <img src="./gnu_linux/linux.svg" width="150" height="150" />
-</div>
