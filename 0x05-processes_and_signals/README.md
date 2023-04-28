@@ -1,11 +1,11 @@
+# Processes and Signals 
+> in GNU/Linux <br/>
+> **Processes** and **signals** allow programs to communicate with each other and the **operating system** itself.
+
 <div align="center">
  <img src="./gnu_linux/gnu.svg" width="150" height="150" />
  <img src="./gnu_linux/linux.svg" width="150" height="150" />
 </div>
-
-# Processes and Signals 
-> in GNU/Linux <br/>
-> **Processes** and **signals** allow programs to communicate with each other and the **operating system** itself.
 
 ---
 ## Processes
