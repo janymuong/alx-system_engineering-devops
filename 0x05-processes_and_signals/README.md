@@ -1,5 +1,5 @@
 # Processes and Signals 
-> in GNU/Linux <br/>
+> `GNU/Linux` <br/>
 > **Processes** and **signals** allow programs to communicate with each other and the **operating system** itself.
 
 <div align="center">
