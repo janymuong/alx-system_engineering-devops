@@ -23,7 +23,7 @@ This loop will iterate over all the files in the current directory that have the
 
 ### Conditions:
 In `GNU/Linux programming`, `conditions` are used to perform actions based on a particular condition being `true` or `false`. The most commonly used conditionals in **GNU/Linux scripting** are `if` statements and `case` statements.
-For example, an "**if**" statement in bash can be used to check if a particular file exists and perform different actions based on whether or not it does. Example:
+For example, an "**if**" statement in bash can be used to check if a particular file is a regular file and exists, and perform different actions based on whether or not it is. Example:
 ```bash
 if [ -f myfile.txt ]
 then
