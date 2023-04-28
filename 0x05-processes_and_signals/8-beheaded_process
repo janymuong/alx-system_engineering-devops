@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# SIGKILL: kill process that has process SIGTERM handler
+
+pkill -9 -f 7-highlander
