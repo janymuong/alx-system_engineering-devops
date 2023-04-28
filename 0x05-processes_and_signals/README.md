@@ -1,12 +1,6 @@
 ## Processes and Signals 
-> in GNU/Linux
-
-<div align="center">
- <img src="./gnu_linux/gnu.svg" width="90" height="90" styel="padding-rigt:200px;" />
- <img src="./gnu_linux/linux.svg" width="90" height="90" />
-</div>
-
-**Processes** and **signals** allow applications to communicate with each other and the **operating system** itself.
+> in GNU/Linux <br/>
+> **Processes** and **signals** allow programs to communicate with each other and the **operating system** itself.
 
 ---
 ### Processes
@@ -71,3 +65,9 @@ while true; do
 done
 ```
 > (script) the `trap` command is used to register the `handle_sigint` **function** as the signal handler for SIGINT. a **while loop** is used to keep the script running until a signal is received. when the script is run, it will print a message every second, and you can send a SIGINT signal by pressing `Ctrl+C`. when the signal is received, the `handle_sigint` function will be called and print a message to the console.
+
+
+<div align="center">
+ <img src="./gnu_linux/gnu.svg" width="150" height="150" />
+ <img src="./gnu_linux/linux.svg" width="150" height="150" />
+</div>
