@@ -1,6 +1,6 @@
 ## `bash` - Loops, conditions and parsing
 
-> `loops`, `conditions`, `parsing`, `shell scripting`
+> covers: `loops`, `conditions`, `parsing`, `shell scripting`
 
 ---
 <div align="center">
@@ -32,7 +32,7 @@ else
     echo "myfile.txt does not exist"
 fi
 ```
-This script checks if the file "myfile.txt" exists in the current directory and prints a message based on the result.
+This script checks if the file "myfile.txt" is a *regular* file(and obviously it exists if regular) in the current directory and prints a message based on the result.
 
 
 ### Parsing:
