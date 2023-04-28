@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script displays its own PID
+
+pgrep -fo "$0"
