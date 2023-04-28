@@ -2,8 +2,8 @@
 > in GNU/Linux
 
 <div align="center">
- <img src="./gnu_linux/gnu.svg" />
- <img src="./gnu_linux/linux.svg" />
+ <img src="./gnu_linux/gnu.svg" width="90" height="90" />
+ <img src="./gnu_linux/linux.svg" width="90" height="90" />
 </div>
 
 **Processes** and **signals** allow applications to communicate with each other and the **operating system** itself.
