@@ -17,3 +17,6 @@ $
  <img src="./0x05-processes_and_signals/gnu_linux/gnu.svg" width="200" height="200" />
  <img src="./0x05-processes_and_signals/gnu_linux/linux.svg" width="200" height="200" />
 </div>
+
+> **Note**: <br/>
+> env - `Ubuntu 20.04`
