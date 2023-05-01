@@ -1,11 +1,4 @@
-# `GNU/Linux` programming and `Shell` Scripting
-
-
-<div align="center">
- <img src="./0x05-processes_and_signals/gnu_linux/gnu.svg" width="150" height="150" />
- <img src="./0x05-processes_and_signals/gnu_linux/linux.svg" width="150" height="150" />
-</div>
-
+# `GNU/Linux` Programming & `Shell` Scripting
 
 ```bash
 $ cat script.sh
@@ -18,3 +11,8 @@ $ cat script.sh
 find . -type f -name '*.tf' -printf '%h\n' | sort -u
 $
 ```
+
+<div align="center">
+ <img src="./0x05-processes_and_signals/gnu_linux/gnu.svg" width="200" height="200" />
+ <img src="./0x05-processes_and_signals/gnu_linux/linux.svg" width="200" height="200" />
+</div>
