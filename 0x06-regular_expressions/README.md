@@ -1,17 +1,17 @@
 # regex
 > regular expressions - wildcards on steroids :)
-
-`Regular expressions` consist of a pattern of *character sequence* that can be used to match and manipulate text - a specific sequence of characters string. 
+> `Regular expressions` consist of a pattern of *character sequence* that can be used to match and manipulate text - a specific sequence of characters string. 
 
 This is a directory on ***regex*** that is rather glib;    
-Scripts are written in `Ruby`, and the default `Oniguruma` library which provides a rich set of features and syntax for working with regex patterns.
+Scripts are written in `Ruby`, and the default `Oniguruma` library which provides a rich set of features and syntax for working with `regex patterns`.
 
-## Basic Regex Syntax in Ruby
-
-- `/hello/` - matches the string "hello" in the text
+- `/hello/` - regex pattern matches the string "hello" in the text
 - `/[aeiou]/` - matches any vowel character in the text
 - `/[0-9]+/` - matches one or more digit characters in the text
 > these patterns can be used with methods like `scan` or `match` to find and manipulate text in Ruby.
+
+
+## Basic Regex Syntax in Ruby
 
 `usage in a script`: 
 ```bash
