@@ -24,8 +24,8 @@ $
 ```
 
 ---
-`appendix: what the script above does`
+`appendix: general Ruby code syntax`
 - `puts` - this is a Ruby method used to output a string to the console.
 - `ARGV[0]` - accesses the first element of the `ARGV` array, which is an array of command-line arguments passed to the script.
-- `.scan(/127.0.0.[0-9]/)` - this searches for any occurrence of the IP address "127.0.0." followed by a single digit (0-9) in the argument provided to the script. the `scan` method returns an array of all matches found.
+- `.scan(/regex-pattern/)` - this searches for any occurrence of the "regex-pattern" in the argument provided to the script. the `scan` method returns an array of all matches found.
 - `.join` - a method that joins the elements of an array into a single string.
