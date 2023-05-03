@@ -1,5 +1,5 @@
 # regex
-> regular expressions - wildcards on steroids :)
+> regular expressions - wildcards on steroids :) <br/>
 > `Regular expressions` consist of a pattern of *character sequence* that can be used to match and manipulate text - a specific sequence of characters string. 
 
 This is a directory on ***regex*** that is rather glib;    
