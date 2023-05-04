@@ -7,5 +7,5 @@ This directory is rather glib; provides answers-only to theory questions and scr
 
 ---
 <div align="center">
- <img src="./tcp_udp.jpg" width="450" height="250" />
+ <img src="./tcp_udp.jpg" height="250" />
 </div>
