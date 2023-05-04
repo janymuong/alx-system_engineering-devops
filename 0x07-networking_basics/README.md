@@ -6,4 +6,6 @@
 This directory is rather glib; provides answers-only to theory questions and scripts solutions(probably).
 
 ---
-![tcp-udp](./tcp_udp.jpg)
+<div align="center">
+ <img src="./tcp_udp.jpg" width="350" height="450" />
+</div>
