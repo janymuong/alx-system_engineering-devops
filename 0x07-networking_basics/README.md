@@ -4,3 +4,6 @@
 
 
 This directory is rather glib; provides answers-only to theory questions and scripts solutions(probably).
+
+---
+![tcp-udp](./tcp_udp.jpg)
