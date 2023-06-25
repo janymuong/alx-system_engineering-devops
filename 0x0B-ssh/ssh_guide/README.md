@@ -240,11 +240,10 @@ ubuntu@194126-web-01:~$ nano ~/.ssh/authorized_keys
 ```
 
 See Below for contrast if not visble from the console text-above: 
-<div>
-    <img src="./server-shell.png" height="100"/>
-</div>
 
+![sever-shell](./server-shell.png)
 
+<br/>
 5. **Step n: task 3**
 While Still connected to your remote shell.(Review the last part of the console session above)
 Paste/Add the string(provided) to the `authorized_keys` file.
