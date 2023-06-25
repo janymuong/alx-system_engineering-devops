@@ -243,7 +243,10 @@ See Below for contrast if not visble from the console text-above:
 ![sever-shell](./server-shell.png)
 
 <br/>
-5. **Step n: task 3**
+
+
+5. **Step n: task 3**  
+
 While Still connected to your remote shell.(Review the last part of the console session above)
 Paste/Add the string(provided) to the `authorized_keys` file.
 
