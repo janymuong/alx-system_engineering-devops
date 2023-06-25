@@ -239,9 +239,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDS4g/rZhE9YRbJjgbZq46DZ7W2ZHD5auZn+Kv5tYaD
 ubuntu@194126-web-01:~$ nano ~/.ssh/authorized_keys
 ```
 
+See Below for contrast if not visble from the console text-above: 
+<div>
+    <img src="./server-shell.png" height="100"/>
+</div>
+
+
 5. **Step n: task 3**
 While Still connected to your remote shell.(Review the last part of the console session above)
-Add the string(provided) to the `authorized_keys` file.
+Paste/Add the string(provided) to the `authorized_keys` file.
 
 ```bash
 nano ~/.ssh/authorized_keys
