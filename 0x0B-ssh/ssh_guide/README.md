@@ -7,9 +7,9 @@ In this context `SSH` enables you establish remote communication between systems
 - all your Bash script files must be executable - i.e. do: `$ chmod +x filename`
 - the first line of all your Bash scripts should be exactly `#!/usr/bin/env bash`  
 - environment:  
->> - Ubuntu 20.04 LTS  
->> - Bash shell  
->> - Puppet   
+> - Ubuntu 20.04 LTS  
+> - Bash shell  
+> - Puppet   
 
 ## Steps:  
 1. *ask for a server in the intranet* -> select [action] from the [Actions] drop-down menu.
@@ -244,7 +244,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDS4g/rZhE9YRbJjgbZq46DZ7W2ZHD5auZn+Kv5tYaD
 ubuntu@194126-web-01:~$ nano ~/.ssh/authorized_keys
 ```
 
-See Below for contrast if not visble from the console text-above: 
+See below for contrast if the console text-above is jumbled up and some detail is not easily visible: 
 
 ![sever-shell](./server-shell.png)
 
@@ -265,4 +265,5 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNdtrNGtTXe5Tp1EJQop8mOSAuRGLjJ6DW4PqX4wId
 ```
 
 This is the end of the guide.
-For task 4; follow the instructions and based on task requirements and your Puppet knowledge.
+
+For task 4; follow the instructions and based on task requirements and your **Puppet** knowledge.
