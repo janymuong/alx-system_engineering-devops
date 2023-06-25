@@ -1,14 +1,12 @@
 # SSH - guide:
 
-In this context `SSH` enables you establish remote communication between systems[client and remote host/server] - to spawn a remote shell.
-
+In this context `SSH` enables you establish remote communication between systems[client and remote host/server]. You can spawn a remote shell in this using `SSH` protocol.
 
 ## Prerequisites  
 
 - all your Bash script files must be executable - i.e. do: `$ chmod +x filename`
-- the first line of all your Bash scripts should be exactly #!/usr/bin/env bash  
-
-> environment:  
+- the first line of all your Bash scripts should be exactly `#!/usr/bin/env bash`  
+- environment:  
 >> - Ubuntu 20.04 LTS  
 >> - Bash shell  
 >> - Puppet   
@@ -94,9 +92,9 @@ ubuntu@magic-server:~$
 
 In the example above, we can see that `ssh` tries to authenticate using school and does not try to authenticate using a password. You can replace 98.98.98.98 by the IP of your server for testing purposes.  
 
-> Well, you have to remember you generated a SSH key-pair in the project: `Bash - Loops, conditions and parsing`.  
+> Well, you have to remember you generated a SSH key-pair in the project: `Bash - Loops, conditions and parsing`. This was a key-pair you generated in `task 0` of that project and you saved it to your intranet profile. It was used to setup your current SSH - Project to enable remote connection to your server.
 
-> If you didn't, then sorry. Maybe you can do now and update in that project section though I think the public key is used to setup the current ssh project. So Im not sure updating will help, unless the setup is done automatically, as in if there is a detetction mechanism that adds the key from your GitHub to configure the new project.
+> If you didn't, then sorry. Maybe you can do now and update in that project section though I think the public key is used to setup the current ssh project. So I'm not sure updating will help, unless the setup is done automatically, as in if there is a detetction mechanism that detects file changes in GitHub and adds the key from your GitHub to configure the new project dynamically.
 
 Review these requirements again:
 
@@ -105,7 +103,8 @@ Review these requirements again:
     Your SSH client configuration must be configured to refuse to authenticate using a password  
 ```
 
-> **Note** - focus on the first one  
+> **Note** - focus on the first one:  
+> Your key-pair generated in the project `Bash - Loops, conditions and parsing`, should exist in your local machine/sandbox/vm etc.
 > If the key-pair you generated in the previous projcet is named `school`, and the path is `~/.ssh/school`, then you're good to go.  
 > If not you might have to rename it to `school` ie rename public key, rename private key.  
 >> `mv current-name school`  
