@@ -25,7 +25,7 @@ This is a demo on how to connect to your server; no restrictions. Follow the ins
 Ie you can connect to a remote host like this:  
 ```bash
 # -i option is for specifying the identity file:
-ssh -i path/to/file ubuntu@server-ip-address
+ssh -i path/to/ssh_file username@server-ip-address
 ```
 
 3. **`task 1` - Create an SSH key pair**:  
@@ -112,7 +112,7 @@ Your SSH client configuration must be configured to refuse to authenticate using
 ### Configure Local OpenSSH Client:
 You should have a file `~/.ssh/config`  :
 ```bash
-$ ls ls -a ~/.ssh/`
+$ ls -a ~/.ssh/`
 ```
 
 If not create it:
