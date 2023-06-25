@@ -17,7 +17,7 @@ In this context `SSH` enables you establish remote communication between systems
 1. *ask for a server in the intranet* -> select [action] from the [Actions] drop-down menu.
 
 <div>
-    <img src=".ssh-png.png" height="100"/>
+    <img src="./ssh-png.png" height="100"/>
 </div>
 
 2. **`task 0` - Use a private key**:  
@@ -114,7 +114,8 @@ Review these requirements again:
 >> `mv school.pub school ~/.ssh/`  
 
 
-### Configure Local OpenSSH Client:
+### Configure Local OpenSSH Client:  
+
 You should have a file `~/.ssh/config`  :
 ```bash
 $ ls ls -a ~/.ssh/`
@@ -249,7 +250,8 @@ See Below for contrast if not visble from the console text-above:
 
 <br/>
 
-5. **Step n: task 3**
+5. **Step n: task 3**  
+
 While Still connected to your remote shell.(Review the last part of the console session above)  
 Add the string(provided) to the `authorized_keys` file.  
 
