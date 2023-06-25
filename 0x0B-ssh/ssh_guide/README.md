@@ -250,6 +250,8 @@ See Below for contrast if not visble from the console text-above:
 While Still connected to your remote shell.(Review the last part of the console session above)
 Paste/Add the string(provided) to the `authorized_keys` file.
 
+> To save file content/write to file/exit in nano; `ctrl+s ctrl+x`
+
 ```bash
 nano ~/.ssh/authorized_keys
 ```
