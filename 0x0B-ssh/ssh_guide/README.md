@@ -3,21 +3,21 @@
 In this context `SSH` enables you establish remote communication between systems[client and remote host/server] - to spawn a remote shell.
 
 
-## Prerequisites
-- all your Bash script files must be executable - ie do: `$ chmod +x filename`
+## Prerequisites  
+
+- all your Bash script files must be executable - i.e. do: `$ chmod +x filename`
 - the first line of all your Bash scripts should be exactly #!/usr/bin/env bash  
 
 > environment:  
 >> - Ubuntu 20.04 LTS  
 >> - Bash shell  
->> - Editors: vi, vim, emacs  
 >> - Puppet   
 
 ## Steps:  
 1. *ask for a server in the intranet* -> select [action] from the [Actions] drop-down menu.
 
 <div>
-    <img src="./ssh-png.png" height="100"/>
+    <img src=".ssh-png.png" height="100"/>
 </div>
 
 2. **`task 0` - Use a private key**:  
@@ -25,7 +25,7 @@ This is a demo on how to connect to your server; no restrictions. Follow the ins
 Ie you can connect to a remote host like this:  
 ```bash
 # -i option is for specifying the identity file:
-ssh -i path/to/ssh_file username@server-ip-address
+ssh -i path/to/file username@server-ip-address
 ```
 
 3. **`task 1` - Create an SSH key pair**:  
@@ -40,13 +40,13 @@ So adapt this to be done using a bash script and specify the passphrase and the 
 
 4. **`task 2` - Client configuration file**:  
 This, and subsequent tasks, is the focus of this guide. 
-Task specs:
+Task specs:  
 Your machine has an SSH configuration file for the local SSH client, let’s configure it to our needs so that you can connect to a server without typing a password. Share your SSH client configuration in your answer file.
 
-Requirements:
-
-Your SSH client configuration must be configured to use the private key ~/.ssh/school
-Your SSH client configuration must be configured to refuse to authenticate using a password
+Requirements:  
+    Your SSH client configuration must be configured to use the private key ~/.ssh/school
+    Your SSH client configuration must be configured to refuse to authenticate using a password
+    Example:
 
 ```bash
 sylvain@ubuntu$ ssh -v ubuntu@98.98.98.98
@@ -92,27 +92,32 @@ debug1: Sending env LANG = en_US.UTF-8
 ubuntu@magic-server:~$
 ```
 
-In the example above, we can see that ssh tries to authenticate using school and does not try to authenticate using a password. You can replace 98.98.98.98 by the IP of your server for testing purposes.
-Well, you have to remember you generated a SSH key-pair in the project: `Processes and Signals task 0`.  
+In the example above, we can see that `ssh` tries to authenticate using school and does not try to authenticate using a password. You can replace 98.98.98.98 by the IP of your server for testing purposes.  
 
-> If you didnt sorry. Maybe you can do now and update in that project section though I think the public key is used to setup the current ssh project. So Im not sure updating will help, unless the setup is done automatically, as in if there is a detetction mechanism that adds the key from your GitHub to configure the new project
+> Well, you have to remember you generated a SSH key-pair in the project: `Bash - Loops, conditions and parsing`.  
+
+> If you didn't, then sorry. Maybe you can do now and update in that project section though I think the public key is used to setup the current ssh project. So Im not sure updating will help, unless the setup is done automatically, as in if there is a detetction mechanism that adds the key from your GitHub to configure the new project.
 
 Review these requirements again:
 
-Your SSH client configuration must be configured to use the private key ~/.ssh/school
-Your SSH client configuration must be configured to refuse to authenticate using a password
+```bash 
+    Your SSH client configuration must be configured to use the private key ~/.ssh/school  
+    Your SSH client configuration must be configured to refuse to authenticate using a password  
+```
+
 > **Note** - focus on the first one  
 > If the key-pair you generated in the previous projcet is named `school`, and the path is `~/.ssh/school`, then you're good to go.  
 > If not you might have to rename it to `school` ie rename public key, rename private key.  
 >> `mv current-name school`  
 >> `mv current-name.pub school.pub`  
-> move both public key and private key to ~/.ssh/ directory.  
+> move both public key and private key to ~/.ssh/ directory:  
+>> `mv school.pub school ~/.ssh/`  
 
 
 ### Configure Local OpenSSH Client:
 You should have a file `~/.ssh/config`  :
 ```bash
-$ ls -a ~/.ssh/`
+$ ls ls -a ~/.ssh/`
 ```
 
 If not create it:
@@ -244,13 +249,9 @@ See Below for contrast if not visble from the console text-above:
 
 <br/>
 
-
-5. **Step n: task 3**  
-
-While Still connected to your remote shell.(Review the last part of the console session above)
-Paste/Add the string(provided) to the `authorized_keys` file.
-
-> To save file content/write to file/exit in nano; `ctrl+s ctrl+x`
+5. **Step n: task 3**
+While Still connected to your remote shell.(Review the last part of the console session above)  
+Add the string(provided) to the `authorized_keys` file.  
 
 ```bash
 nano ~/.ssh/authorized_keys
