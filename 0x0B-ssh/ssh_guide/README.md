@@ -17,7 +17,7 @@ In this context `SSH` enables you establish remote communication between systems
 1. *ask for a server in the intranet* -> select [action] from the [Actions] drop-down menu.
 
 <div>
-    <img src=".ssh-png.png" height="100"/>
+    <img src="./ssh-png.png" height="100"/>
 </div>
 
 2. **`task 0` - Use a private key**:  
