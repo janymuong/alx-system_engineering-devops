@@ -41,15 +41,14 @@ So adapt this to be done using a bash script and specify the passphrase and the 
 4. **`task 2` - Client configuration file**:  
 This, and subsequent tasks, is the focus of this guide. 
 Task specs:
+Your machine has an SSH configuration file for the local SSH client, let’s configure it to our needs so that you can connect to a server without typing a password. Share your SSH client configuration in your answer file.
+
+Requirements:
+
+Your SSH client configuration must be configured to use the private key ~/.ssh/school
+Your SSH client configuration must be configured to refuse to authenticate using a password
 
 ```bash
-# Your machine has an SSH configuration file for the local SSH client, let’s configure it to our needs so that you can connect to a server without typing a password. Share your SSH client configuration in your answer file.
-
-# Requirements:
-    # Your SSH client configuration must be configured to use the private key ~/.ssh/school
-    # Your SSH client configuration must be configured to refuse to authenticate using a password
-    # Example:
-
 sylvain@ubuntu$ ssh -v ubuntu@98.98.98.98
 OpenSSH_6.6.1, OpenSSL 1.0.1f 6 Jan 2014
 debug1: Reading configuration data /etc/ssh/ssh_config
