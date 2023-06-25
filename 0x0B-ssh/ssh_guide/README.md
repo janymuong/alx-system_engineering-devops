@@ -110,6 +110,7 @@ Review these requirements again:
 > If not you might have to rename it to `school` ie rename public key, rename private key.  
 >> `mv current-name school`  
 >> `mv current-name.pub school.pub`  
+
 > move both public key and private key to ~/.ssh/ directory:  
 >> `mv school.pub school ~/.ssh/`  
 
@@ -118,7 +119,7 @@ Review these requirements again:
 
 You should have a file `~/.ssh/config`  :
 ```bash
-$ ls ls -a ~/.ssh/`
+$ ls -a ~/.ssh/
 ```
 
 If not create it:
