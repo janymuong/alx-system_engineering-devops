@@ -7,6 +7,6 @@ In this debugging series, broken/bugged webstacks are assessed. The motivation i
 Web stack debugging involves identifying and resolving errors, performance bottlenecks, and misconfigurations in the components that make up a web application's infrastructure. You can get useful info from logs, and shell commands meant to analyze server state, system status, appliaction status etc.  
 
 ---
-<div>
+<div align="center">
     <img src="./img/uWLzjc8.jpg" height="200" />
 </div>
