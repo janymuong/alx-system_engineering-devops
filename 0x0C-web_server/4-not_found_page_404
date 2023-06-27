@@ -1,34 +1,32 @@
 #!/usr/bin/env bash
-# bash: script install and configure Nginx web server:
-#       add error page
+# bash: script install and configure Nginx web server
+# and redirects traffic and serves error pages:
 
 sudo apt-get update -y
 sudo apt-get install -y nginx
 
 # configure Nginx
-sudo ufw allow 'Nginx HTTP'
 sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
-sudo service nginx restart
 
-# create index.html file served out by the server
-echo 'Hello World!' | sudo tee /var/www/html/index.html > /dev/null
+# create index.html file served out by server:
+# & configure the redirection and return error pages
+echo 'Hello World!' > /etc/nginx/html/index.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 
-# configure the custom 404 page
-html_content=$(cat <<EOF
-<!DOCTYPE html>
-<html>
-<head>
-    <title>404 Not Found</title>
-</head>
-<body>
-    <h1>404 Not Found</h1>
-    <p>Ceci n'est pas une page</p>
-</body>
-</html>
-EOF
-)
-sudo bash -c "echo '$html_content' > /var/www/html/404.html"
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
+    location /redirect_me {
+        return 301 https://stackoverflow.com/;
+    }
 
-# update Nginx configuration for custom 404 page
-sudo sed -i '/location \/ {/a \    error_page 404 /404.html;' /etc/nginx/sites-available/default
-sudo service nginx restart
+    error_page 404 /404.html;
+    location /404 {
+      root /etc/nginx/html;
+      internal;
+    }
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
