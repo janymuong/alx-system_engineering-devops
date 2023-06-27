@@ -90,7 +90,7 @@ debug1: Sending env LANG = en_US.UTF-8
 ubuntu@magic-server:~$
 ```
 
-In the example above, we can see that `ssh` tries to authenticate using school and does not try to authenticate using a password. You can replace 98.98.98.98 by the IP of your server for testing purposes.  
+In the example above, we can see that `SSH` tries to authenticate using school and does not try to authenticate using a password. You can replace 98.98.98.98 by the IP of your server for testing purposes.  
 
 > Well, you have to remember you generated a SSH key-pair in the project: `Bash - Loops, conditions and parsing`. This was a key-pair you generated in `task 0` of that project and you saved it to your intranet profile. It was used to setup your current SSH - Project to enable remote connection to your server.
 
@@ -147,6 +147,12 @@ If you get a `permission denied` error, set the file permission of the `~/.ssh/s
 
 ```bash
 chmod 400 ~/.ssh/school
+```
+
+```bash
+# check if file has read-only permission:
+$ ls -l ~/.ssh/school
+-r-------- 1 root root 2590 Apr 27 17:45 /root/.ssh/school
 ```
 
 Ascertain your `SSH` agent is running; else start it in the background and/or add your SSH key to it only if necessary - as in you can try authenticating to server without adding the private key to the agent:  
