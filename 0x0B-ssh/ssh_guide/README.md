@@ -151,8 +151,9 @@ chmod 400 ~/.ssh/school
 
 Ascertain your `SSH` agent is running; else start it in the background and/or add your SSH key to it only if necessary - as in you can try authenticating to server without adding the private key to the agent:  
 ```bash
+# start agent in bg:
 eval "$(ssh-agent -s)"
-# do this if necessary
+# do this if necessary:
 ssh-add ~/.ssh/school
 ```
 
@@ -276,8 +277,8 @@ This is the end of the guide.
 
 For task 4; follow the instructions and based on task requirements and your **Puppet** knowledge.
 
-A quick overview:
+A quick overview:  
 You're working on the system-wide SSH configuration file, path: `/etc/ssh/ssh_config`
-modify the file `/etc/ssh/ssh_config` using a puppet script.
+modify the file `/etc/ssh/ssh_config` using a Puppet script. Use `puppet-lint --fix` if necessary to fix syntax errors e.g. indents
 
 > Disable `PasswordAuthentication` and specify `IdentityFile`. 
