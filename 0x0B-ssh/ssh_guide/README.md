@@ -94,7 +94,7 @@ In the example above, we can see that `ssh` tries to authenticate using school a
 
 > Well, you have to remember you generated a SSH key-pair in the project: `Bash - Loops, conditions and parsing`. This was a key-pair you generated in `task 0` of that project and you saved it to your intranet profile. It was used to setup your current SSH - Project to enable remote connection to your server.
 
-> If you didn't, then sorry. Maybe you can do now and update in that project section though I think the public key is used to setup the current ssh project. So I'm not sure updating will help, unless the setup is done automatically, as in if there is a detetction mechanism that detects file changes in GitHub and adds the key from your GitHub to configure the new project dynamically.
+> If you didn't, then sorry. Maybe you can do now and update in that project section though I think the public key is used to setup the current ssh project. So I'm not sure updating will help, unless the setup is done automatically, as in if there is a detection mechanism that detects file changes in GitHub and adds the key from your GitHub to configure the new project dynamically.
 
 Review these requirements again:
 
@@ -134,7 +134,8 @@ Host your-server-ip
     PasswordAuthentication no
 ```
 
-Review this line in the console session above: `sylvain@ubuntu$ ssh -v ubuntu@98.98.98.98`  
+Review this line in the console session above for syntax on how to connect via SSH:  
+`sylvain@ubuntu$ ssh -v ubuntu@98.98.98.98`  
 
 `Connect to your server`:  
 If you asked for a server in step 1. You have an IP
@@ -146,6 +147,13 @@ If you get a `permission denied` error, set the file permission of the `~/.ssh/s
 
 ```bash
 chmod 400 ~/.ssh/school
+```
+
+Ascertain your `SSH` agent is running; else start it in the background and/or add your SSH key to it only if necessary - as in you can try authenticating to server without adding the private key to the agent:  
+```bash
+eval "$(ssh-agent -s)"
+# do this if necessary
+ssh-add ~/.ssh/school
 ```
 
 Connect now: 
@@ -256,7 +264,7 @@ While Still connected to your remote shell.(Review the last part of the console 
 Add the string(provided) to the `authorized_keys` file.  
 
 ```bash
-nano ~/.ssh/authorized_keys
+vim ~/.ssh/authorized_keys
 ```
 
 The SSH public key given in your intranet task 3 looks like this:
@@ -267,3 +275,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNdtrNGtTXe5Tp1EJQop8mOSAuRGLjJ6DW4PqX4wId
 This is the end of the guide.
 
 For task 4; follow the instructions and based on task requirements and your **Puppet** knowledge.
+
+A quick overview:
+You're working on the system-wide SSH configuration file, path: `/etc/ssh/ssh_config`
+modify the file `/etc/ssh/ssh_config` using a puppet script.
+
+> Disable `PasswordAuthentication` and specify `IdentityFile`. 
