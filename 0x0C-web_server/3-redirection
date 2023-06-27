@@ -14,5 +14,5 @@ sudo service nginx restart
 echo 'Hello World!' | sudo tee /var/www/html/index.html > /dev/null
 
 # configure the redirection
-sudo sed -i '/location \/ {/a \    location \/redirect_me { return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4; }' /etc/nginx/sites-available/default
+sudo sed -i "30i \\\tlocation /redirect_me {\n\t\treturn 301 https://stackoverflow.com/;\n}" /etc/nginx/sites-available/default
 sudo service nginx restart
