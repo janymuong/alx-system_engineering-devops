@@ -10,7 +10,6 @@ sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
 
 # create index.html file served out by server:
 # & configure the redirection and return error pages
-mkdir /etc/nginx/html
 echo 'Hello World!' > /etc/nginx/html/index.html
 echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 
@@ -27,6 +26,7 @@ printf %s "server {
     location = /404.html {
         root /var/www/html;
         internal;
+    }
 }" > /etc/nginx/sites-available/default
 
 service nginx restart
