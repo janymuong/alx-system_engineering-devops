@@ -5,8 +5,8 @@
 sudo apt-get update -y
 sudo apt-get install -y nginx
 
-# configure Nginx
-sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
+# # configure Nginx
+# sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
 
 # create index.html file served out by server:
 # & configure the redirection and return error pages
