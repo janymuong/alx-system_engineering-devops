@@ -5,11 +5,12 @@
 sudo apt-get update -y
 sudo apt-get install -y nginx
 
-# # configure Nginx
-# sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
+# configure Nginx
+sudo sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
 
 # create index.html file served out by server:
 # & configure the redirection and return error pages
+mkdir /etc/nginx/html
 echo 'Hello World!' > /etc/nginx/html/index.html
 echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 
