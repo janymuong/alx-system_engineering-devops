@@ -1,3 +1,5 @@
+# script add a custom HTTP header with Puppet
+
 class { 'nginx':
   # Install Nginx package
 }
