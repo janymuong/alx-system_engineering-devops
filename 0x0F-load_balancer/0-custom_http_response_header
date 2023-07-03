@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# bash: script to install and configure Nginx web server and add custom response header
+
+sudo apt-get update -y
+sudo apt-get install -y nginx
+
+# create index.html file served out by server:
+# & configure the redirection and return error pages
+mkdir -p /var/www/html
+echo 'Hello World!' > /var/www/html/index.html
+
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+# configure Nginx
+# and with custom response header configuration:
+printf %s "server {
+     listen      80 default_server;
+     listen      [::]:80 default_server;
+     root        /var/www/html;
+     index       index.html index.htm;
+
+     location	 /redirect_me {
+     	 return  301 https://stackoverflow.com/;
+     }
+
+     error_page	404 /404.html;
+     location	/404 {
+     	 root	/var/www/html;
+	 internal;
+     }
+
+     add_header X-Served-By \$hostname;
+}
+" > /etc/nginx/sites-available/default
+
+sudo service nginx restart
