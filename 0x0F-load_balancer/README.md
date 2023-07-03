@@ -10,7 +10,7 @@ The project consists of the following components:
 - **Web Servers** - `SOME-ID-web-01`, `SOME-ID-web-02`: Multiple backend servers hosting the web application on `Nginx`.
 
 #### General Info:  
-> You could copy files(eg Nginx configuration scripts) to the servers like this in CLI:  
+> You could copy files(eg Nginx configuration bash scripts) to the servers like this in CLI:  
 >> `$ ./ssh_scp_file some_file.extension server-ip ubuntu ~/.ssh/private_key`
 
 ### Server Configuration
