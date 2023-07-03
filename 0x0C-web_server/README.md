@@ -17,7 +17,7 @@ The project includes various components and concepts related to web servers. Her
 
 1. Web Server Basics:
    - Understanding the role and functionality of web servers.
-   - Configuring and managing web server software (e.g., Apache, Nginx - focus on Nginix).
+   - Configuring and managing web server software (e.g., Apache, Nginx - focus on Nginx).
 
 2. File Transfer:
    - Transferring files to a server using `SSH` and `scp`.
