@@ -1,45 +1,30 @@
 # script add a custom HTTP header with Puppet
 
-class { 'nginx':
-  # Install Nginx package
-}
+$x_header = "add_header X-Served-By ${hostname};"
 
-# Install required puppet modules
-package { 'puppet-nginx':
-  ensure => installed,
+exec { 'update':
+  command => '/usr/bin/apt-get update',
 }
-
-# create index.html file served out by the server
-file { '/var/www/html/index.html':
-  ensure  => present,
-  content => 'Hello World!',
+-> package { 'nginx':
+  ensure  => installed,
+  require => Exec['update']
 }
-
-# create 404.html file
-file { '/var/www/html/404.html':
-  ensure  => present,
-  content => "Ceci n'est pas une page",
+-> file_line { 'redirection, 301':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me  https://stackoverflow.com/ permanent;',
 }
-
-# configure Nginx with custom response header
-nginx::resource::server { 'default':
-  ensure       => present,
-  listen_port  => '80',
-  root         => '/var/www/html',
-  index_files  => ['index.html', 'index.htm'],
-  server_name  => '_',
-  location_cfg => [
-    {
-      'location' => '/redirect_me',
-      'return'   => '301 https://stackoverflow.com/',
-    },
-    {
-      'location' => '/404',
-      'root'     => '/var/www/html',
-      'internal' => true,
-    },
-  ],
-  add_header   => {
-    'X-Served-By' => '$hostname',
-  },
+-> file_line { 'custom HTTP response Header':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => $x_header,
+}
+-> file { '/var/www/html/index.html':
+  content => 'Holberton School',
+}
+-> service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
 }
