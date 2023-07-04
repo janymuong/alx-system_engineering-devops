@@ -1,6 +1,6 @@
 # Web-stack Debugging
 
-> `Series #1`  :
+> `Series #1`:  
 > Builds up on: [0x0D-web_stack_debugging_0](../0x0D-web_stack_debugging_0)
 
 In this debugging series, broken/bugged webstacks are assessed. The motivation is to come up with Bash scripts that once executed, will bring the webstacks to a working state.
