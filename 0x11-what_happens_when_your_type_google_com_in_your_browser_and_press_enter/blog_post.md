@@ -24,6 +24,8 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 > **Note**:  
 > There are visual aids that depict some select concepts in here. So you could view them as you read along.
 
+<br/>
+
 ### What DNS IS
 > Please read this short non-technical excerpt before moving on to the rest of this article:
 
