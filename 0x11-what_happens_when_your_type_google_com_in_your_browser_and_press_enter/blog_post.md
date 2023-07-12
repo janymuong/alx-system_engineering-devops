@@ -27,11 +27,12 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 ### What DNS IS
 > Please read this short non-technical excerpt before moving on to the rest of this article:
 
+# "
+
 DNS (Domain Name System) is a fundamental part of how the internet works, providing a way to translate human-readable domain names (such as google.com) into machine-readable IP addresses (such as 172.217.170.174). It serves as a directory or phonebook of the internet, enabling us to access websites, send emails, and perform various online activities.
 
 Think of DNS as a system that maps domain names to the corresponding IP addresses. When you type a domain name into your web browser and hit Enter, the browser needs to find the IP address associated with that domain to establish a connection and load the webpage.
 
-# "
 DNS working:
 
 1. **Domain Registration**: When a person or organization wants to create a website, they register a unique domain name through a domain registrar. This registration and follow up configuration links the domain name to the IP address of the server where the website's files are hosted.
