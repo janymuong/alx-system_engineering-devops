@@ -25,10 +25,7 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 
 ### What DNS IS
 > **Note**:  
-> Pictures are Nice!:  
->> There are visual aids that depict some select concepts in here. So you could view them as you read along.  
-
-> DNS background:  
+> **DNS background**:  
 >> Please read this short non-technical excerpt before moving on to the rest of this article:
 
 # "
