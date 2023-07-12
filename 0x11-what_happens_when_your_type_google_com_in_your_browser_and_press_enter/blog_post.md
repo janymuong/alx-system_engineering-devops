@@ -21,13 +21,14 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 - [Database](#database)
 - [Conclusion](#conclusion)
 
-> **Note**:  
-> There are visual aids that depict some select concepts in here. So you could view them as you read along.
-
 <br/>
 
 ### What DNS IS
-> Please read this short non-technical excerpt before moving on to the rest of this article:
+> **Note**:  
+> Pictures are Nice!:  
+>> There are visual aids that depict some select concepts in here. So you could view them as you read along.  
+> DNS background:  
+>> Please read this short non-technical excerpt before moving on to the rest of this article:
 
 # "
 
@@ -94,9 +95,9 @@ google.com.             0       IN      A       172.217.170.174
 mu-o@HP:~$
 ```
 
-The first step in loading a webpage is the `DNS` (Domain Name System) request. When you enter "google.com" in your browser, it needs to resolve the domain name to its corresponding IP address. The browser sends a DNS request to a DNS server, which then looks up the IP address associated with the domain name. This process involves multiple DNS servers, starting from the browser's local cache to recursive DNS servers and authoritative DNS servers. Once the IP address is obtained, the browser can proceed with establishing a connection to the server.
+The first step in loading a webpage is the `DNS`request. When you enter "google.com" in your browser, it needs to resolve the domain name to its corresponding IP address. The browser sends a DNS request to a DNS server, which then looks up the IP address associated with the domain name. This process involves multiple DNS servers, starting from the browser's local cache to recursive DNS servers and authoritative DNS servers. Once the IP address is obtained, the browser can proceed with establishing a connection to the server.
 
-View the *shell session* above (using UNIX's command-line tool `dig`); for reference on how DNS maps hostnames to IP addresses and how DNS (Domain Name System) queries are resolved. **dig** stands for "domain information groper". The dig command allows you to retrieve various types of DNS information and perform DNS lookups, providing detailed insights into DNS resolution processes. This is a similar process in a web browser request.
+View the *shell session* above (using UNIX's command-line tool `dig`); for reference on how DNS maps hostnames to IP addresses and how DNS queries are resolved. **dig** stands for "domain information groper". The dig command allows you to retrieve various types of DNS information and perform DNS lookups, providing detailed insights into DNS resolution processes. This is a similar process in a web browser request.
 
 ![DNS Request](./img_blog/search_engine.png)
 > This image visually represents the DNS request process
@@ -149,7 +150,7 @@ They act as a barrier between the browser and the server, analyzing and filterin
 
 3. **Protocol Restrictions**: Firewalls may enforce restrictions on specific protocols. For accessing websites, the HTTP and HTTPS protocols are relevant. If a firewall blocks or allows the HTTP or HTTPS protocol, it would impact accessing websites, including google.com.
 
-This is an example of protocol restriction in `Nginx`:
+This is an example of protocol restriction in `Nginx`, allowing HTTP traffic on port 80 through the firewall:
 ```bash
 $ cat nginx_config.sh
 #!/usr/bin/env bash
@@ -180,11 +181,11 @@ echo 'Hello World!' | sudo tee /var/www/html/index.html > /dev/null
 HTTPS pages typically use one of two aforeamentioned protocols. Both the TLS and SSL protocols use what is known as an 'asymmetric' Public Key Infrastructure (PKI) system. An asymmetric system uses two 'keys' to encrypt communications, called a key-pair which includes a 'public' key and a 'private' key. Anything encrypted with the public key can only be decrypted by the private key and vice-versa. Encryption means that the sender and recipient agree upon a "code" and translate their documents into random-looking character sequence strings which can only be deciphered with private keys.
 
 ### What a HTTPS certificate IS
-A certificate can be generated using a trusted provider e.g ***Electronic Frontier Foundation*** (EFF) using [`certbot`](https://certbot.eff.org/instructions?ws=haproxy&os=ubuntufocal).
+An SSL/TLS certificate can be generated using a trusted provider e.g ***Electronic Frontier Foundation*** (EFF) using [`certbot`](https://certbot.eff.org/instructions?ws=haproxy&os=ubuntufocal).
 
 When you request a HTTPS connection to a webpage, the website will initially send its SSL certificate to your browser. This certificate contains the public key needed to begin the secure session. Based on this initial exchange, your browser and the website then initiate the 'SSL handshake'. The SSL handshake involves the generation of shared secrets to establish a uniquely secure connection between yourself and the website.
 
-> Telling a Secure Connection From --insecure:  
+> Telling a Secure Connection From Insecure:  
 > Most modern web browsers display a padlock icon in the address bar to visually indicate that a HTTPS connection is in effect. When an Extended Validation Certificate is installed on a web site, the address bar will turn green.
 
 ![HTTPS-SSL](./img_blog/haproxy-letsencrypt.png)
