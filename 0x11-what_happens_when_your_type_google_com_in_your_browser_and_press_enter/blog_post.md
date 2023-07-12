@@ -1,6 +1,6 @@
 # What Happens When You Type `google.com` in Your Browser and Press `enter`?
 
-This is an article-like REAME.md that aims to explain the step-by-step process that occurs when you enter "google.com" in your web browser and press the `enter` key. In this context, we will explore each stage of the workflow, from the initial `DNS` request to the final `rendering` of the webpage.
+This is an article-like REAME.md that aims to explain the step-by-step process that occurs when you enter "google.com" in your web browser and press the `enter` key. In this context, we will explore each stage of the workflow, from the initial `DNS` request to the final `DOM rendering` of the webpage.
 
 > [Web Infrastructure Diagram](./img_blog/web_infra.png):
 <div align="center">
