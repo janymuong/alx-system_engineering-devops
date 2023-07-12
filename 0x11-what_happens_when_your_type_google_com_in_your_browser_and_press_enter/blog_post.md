@@ -2,8 +2,11 @@
 
 This is an article-like REAME.md that aims to explain the step-by-step process that occurs when you enter "google.com" in your web browser and press the Enter key. In this context, we will explore each stage of the workflow, from the initial `DNS` request to the final `rendering` of the webpage.
 
+<div align="center">
+    <img src="./img_blog/web_infra.png" height="300" width="600"/>
+</div>
 
-![Web Infrastructure](./img_blog/web_infra.png)
+> [Web Infrastructure Diagram](./img_blog/web_infra.png)
 
 ## Table of Contents
 
@@ -122,7 +125,10 @@ TCP/IP puts a lot of emphasis on accuracy, and it has several steps to ensure th
 
 Theoretically, TCP/IP divides the different communications tasks into layers. Each layer has a different function. Data goes through four individual layers before it is received on the other end. TCP/IP then goes through these layers in reverse order to reassemble the data and to present it to the recipient.
 
-![TCP/IP](./img_blog/tcp_udp.jpg)
+<div align="left">
+    <img src="./img_blog/tcp_udp.jpg" height="150" width="600"/>
+</div>
+
 > *TCP/IP data packets transfer process*
 
 
