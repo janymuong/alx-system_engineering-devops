@@ -25,9 +25,8 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 > There are visual aids that depict some select concepts in here. So you could view them as you read along.
 
 ### What DNS IS
-> Please read this short excerpt before moving on to the rest of this article:
+> Please read this short non-technical excerpt before moving on to the rest of this article:
 
-```bash
 DNS (Domain Name System) is a fundamental part of how the internet works, providing a way to translate human-readable domain names (such as google.com) into machine-readable IP addresses (such as 172.217.170.174). It serves as a directory or phonebook of the internet, enabling us to access websites, send emails, and perform various online activities.
 
 Think of DNS as a system that maps domain names to the corresponding IP addresses. When you type a domain name into your web browser and hit Enter, the browser needs to find the IP address associated with that domain to establish a connection and load the webpage.
@@ -53,10 +52,10 @@ DNS working:
 Throughout this process, multiple DNS servers collaborate to resolve the domain name and provide the correct IP address. The DNS system is designed to be efficient, reliable, and scalable, ensuring quick and accurate resolution of domain names.
 
 Overall, DNS simplifies the process of accessing websites by translating easy-to-remember domain names into the numeric IP addresses that computers understand. It plays a crucial role in facilitating seamless communication and accessibility on the internet.
-```
 
 
-## Premise
+
+# Premise
 
 When you type "`https://www.google.com`" in your browser and press Enter, a series of intricate processes unfold under the hood to deliver the webpage. Understanding these processes is crucial for gaining insights into the infrastructure side of web development. In this blog post, we will explore the step-by-step journey of a web request, from the initial DNS resolution to the final rendering of the webpage case by case.
 
