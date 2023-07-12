@@ -2,9 +2,8 @@
 
 This is an article-like REAME.md that aims to explain the step-by-step process that occurs when you enter "google.com" in your web browser and press the Enter key. In this context, we will explore each stage of the workflow, from the initial `DNS` request to the final `rendering` of the webpage.
 
-<div align="center" >
-    <img src="./img_blog/web_infra.png" height="100" width="400" />
-</div>
+
+![Web Infrastructure](./img_blog/web_infra.png)
 
 ## Table of Contents
 
@@ -179,7 +178,7 @@ When you request a HTTPS connection to a webpage, the website will initially sen
 > Most modern web browsers display a padlock icon in the address bar to visually indicate that a HTTPS connection is in effect. When an Extended Validation Certificate is installed on a web site, the address bar will turn green.
 
 ![HTTPS-SSL](./img_blog/haproxy-letsencrypt.png)
-*Copyright*: Digital Ocean
+> *Copyright*: Digital Ocean
 
 > Read More On:  
 > [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04)
