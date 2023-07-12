@@ -8,9 +8,9 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+- [Introduction](#premise)
 - [DNS Request](#dns-request)
-- [TCP/IP](#tcpip)
+- [TCP/IP](#tcpip-stack)
 - [Firewall](#firewall)
 - [HTTPS/SSL](#https-and-ssl)
 - [Load Balancer](#load-balancer)
