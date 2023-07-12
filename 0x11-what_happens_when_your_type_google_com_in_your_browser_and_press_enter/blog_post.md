@@ -2,11 +2,11 @@
 
 This is an article-like REAME.md that aims to explain the step-by-step process that occurs when you enter "google.com" in your web browser and press the Enter key. In this context, we will explore each stage of the workflow, from the initial `DNS` request to the final `rendering` of the webpage.
 
+> [Web Infrastructure Diagram](./img_blog/web_infra.png):
 <div align="center">
     <img src="./img_blog/web_infra.png" height="300" width="600"/>
 </div>
 
-> [Web Infrastructure Diagram](./img_blog/web_infra.png)
 
 ## Table of Contents
 
