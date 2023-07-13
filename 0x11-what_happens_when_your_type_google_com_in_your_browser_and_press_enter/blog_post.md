@@ -1,6 +1,6 @@
-# What Happens When You Type `google.com` in Your Browser and Press `enter`?
+# What Happens When You Type `google.com` in Your Browser and Press `Enter`?
 
-This is an article-like REAME.md that aims to explain the step-by-step process that occurs when you enter "google.com" in your web browser and press the `enter` key. In this context, we will explore each stage of the workflow, from the initial `DNS` request to the final `DOM rendering` of the webpage.
+This is an article-like markdown that aims to explain the step-by-step process that occurs when you enter **"google.com"** in your web browser and press the `enter` key. In this context, we will explore each stage of the workflow, from the initial `DNS` request to the final `DOM rendering` of the webpage.
 
 > [Web Infrastructure Diagram](./img_blog/web_infra.png):
 <div align="center">
@@ -10,7 +10,7 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 
 ## Table of Contents
 
-- [Introduction](#premise)
+- [Premise](#premise)
 - [DNS Request](#dns-request)
 - [TCP/IP](#tcpip-stack)
 - [Firewall](#firewall)
@@ -24,13 +24,13 @@ This is an article-like REAME.md that aims to explain the step-by-step process t
 <br/>
 
 ### What DNS IS
-> **Note**:  
+> **Note**  
 > **DNS background**:  
->> Please read this short non-technical excerpt before moving on to the rest of this article:
+> Please read this short non-technical excerpt before moving on to the rest of this article.
 
 # "
 
-DNS (Domain Name System) is a fundamental part of how the internet works, providing a way to translate human-readable domain names (such as google.com) into machine-readable IP addresses (such as 172.217.170.174). It serves as a directory or phonebook of the internet, enabling us to access websites, send emails, and perform various online activities.
+`DNS` (Domain Name System) is a fundamental part of how the internet works, providing a way to translate human-readable domain names (such as google.com) into machine-readable IP addresses (such as 172.217.170.174). It serves as a directory or phonebook of the internet, enabling us to access websites, send emails, and perform various online activities.
 
 Think of DNS as a system that maps domain names to the corresponding IP addresses. When you type a domain name into your web browser and hit Enter, the browser needs to find the IP address associated with that domain to establish a connection and load the webpage.
 
@@ -55,13 +55,14 @@ DNS working:
 Throughout this process, multiple DNS servers collaborate to resolve the domain name and provide the correct IP address. The DNS system is designed to be efficient, reliable, and scalable, ensuring quick and accurate resolution of domain names.
 
 Overall, DNS simplifies the process of accessing websites by translating easy-to-remember domain names into the numeric IP addresses that computers understand. It plays a crucial role in facilitating seamless communication and accessibility on the internet.
+
 # "
 
 <br/>
 
-# Premise
+## Premise
 
-When you type "`https://www.google.com`" in your browser and press Enter, a series of intricate processes unfold under the hood to deliver the webpage. Understanding these processes is crucial for gaining insights into the infrastructure side of web development. In this blog post, we will explore the step-by-step journey of a web request, from the initial DNS resolution to the final rendering of the webpage case by case.
+When you type `"https://www.google.com"` in your browser and press `enter` on your keyboard, a series of intricate processes unfold under the hood to deliver the webpage. Understanding these processes is crucial for gaining insights into the infrastructure side of web development. In this blog post, we will explore the step-by-step journey of a web request, from the initial DNS resolution to the final rendering of the webpage case by case.
 
 
 
@@ -175,7 +176,7 @@ echo 'Hello World!' | sudo tee /var/www/html/index.html > /dev/null
 ## HTTPS and SSL
 `HTTPS` (Hypertext Transfer Protocol Secure) uses `SSL` (Secure Sockets Layer) or `TLS` (Transport Layer Security) for securing a website or web application; [www.google.com](https://www.google.com) in this context. It ensures secure communication between the client(your browser) and the server by encrypting data transmission, preventing unauthorized interception or tampering.  SSL/TLS certificates are used to authenticate the server's identity and establish a secure connection. This encryption process safeguards sensitive information, such as login credentials or financial data, from potential eavesdropping or data breaches.
 
-### `How Does HTTPS Work, ey?`
+### `How Does HTTPS Work, Ey?`
 HTTPS pages typically use one of two aforeamentioned protocols. Both the TLS and SSL protocols use what is known as an 'asymmetric' Public Key Infrastructure (PKI) system. An asymmetric system uses two 'keys' to encrypt communications, called a key-pair which includes a 'public' key and a 'private' key. Anything encrypted with the public key can only be decrypted by the private key and vice-versa. Encryption means that the sender and recipient agree upon a "code" and translate their documents into random-looking character sequence strings which can only be deciphered with private keys.
 
 ### What a HTTPS certificate IS
@@ -194,34 +195,82 @@ When you request a HTTPS connection to a webpage, the website will initially sen
 
 
 
-
-
 ## Load Balancer
-> incomplete  
-In this section, describe the role of load balancers in distributing incoming network traffic across multiple servers. Discuss how load balancers optimize performance, improve scalability, and ensure high availability of web applications.
+***Load balancers*** handle high traffic loads and ensure optimal performance. They distribute incoming network traffic across multiple servers, known as a server cluster. They help optimize resource utilization, improve scalability, and enhance availability by evenly distributing requests. Load balancers can use various algorithms to determine which server should handle each incoming request, considering factors like server health, capacity, or proximity to the user. Load balancers ensure high availability by distributing the work-load of your system to multiple individual systems, or group of systems to to reduce the amount of load on an individual system, which in turn increases the reliability, efficiency and high availability of your enterprise application or website. This technically is a fail-safe mechanism to improve actual system performance.  
+There are software and hardware load balancers. Software load balancers generally implements a combination of one or more scheduling algorithms e.g. in a round robin fashion, scheduling algorithms meant to direct traffic to servers with the least connection at the moment of the request, and others meant to redirect traffic based on weight assigned to servers based on the hardware architecture/capabilities.
+
+Common examples of industry load balancers are:
+- HAProxy – A TCP load balancer.
+- NGINX – A http load balancer with SSL termination support. (install Nginx on Linux)
+- mod_athena – Apache based http load balancer.
+
+See the script below for configuring a HAProxy server to distribute traffic to servers.
+
+```bash
+#!/usr/bin/env bash
+
+...
+# configure HAProxy
+sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
+
+echo "
+frontend frontend_http
+    bind *:80
+    mode http
+    default_backend backend_http
+
+backend backend_http
+    mode http
+    balance roundrobin
+    server host-server-name server-ip:80 check
+    server host-server-name server-ip:80 check
+" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
+...
+```
+> You don't have to understand the script above. But this is what it does: it specifies servers to send requests to in a round robin manner. The load balancer/HAProxy in this case stands in front of your servers and is hit first by the request, and it decides which server to send the rquest to.  
+
+> **Load-balancing example**:  
+>> Imagine a popular e-commerce website that experiences a surge in traffic during a holiday season sale. The website utilizes a load balancer to manage the increased influx of requests. The load balancer receives incoming requests from users and intelligently distributes them across several backend servers in the server farm. It uses an algorithm, such as round-robin, least connections, or weighted distribution, to determine which server should handle each request. This ensures that the workload is evenly distributed among the servers, optimizing resource utilization and preventing any single server from becoming overloaded.
+
+
 
 ## Web Server
-> incomplete  
-In this section, explain how web servers handle incoming requests and serve web content to the browser. Discuss popular web server software like Apache or Nginx and their role in processing HTTP requests.
+Once the request passes through the load balancer, it reaches the web server responsible for serving out the requested web content. Web servers, such as Apache HTTP Server or Nginx, handle incoming HTTP requests and respond with the corresponding static content e.g. HTML, CSS, JavaScript, and other web files. They communicate with the browser using the HTTP protocol, processing the request and returning the appropriate response, which includes the webpage's content, status codes, and headers.
+Apache or Nginx web servers play a role in processing HTTP requests, basically.
+
+> **Example**:  
+>> Consider a news website where users can browse articles and access multimedia content. When a user clicks on a specific article, their request is sent to the web server. The web server receives the request, retrieves the relevant article's content from a database or a file system, and generates an appropriate response. This response includes the HTML, CSS, JavaScript, and other necessary files that make up the webpage. The web server communicates with the browser using the HTTP protocol, ensuring that the requested content is delivered and displayed correctly.  
+
+> **Infrastructure Diagrams are Nice!**:  
+> View our first diagram for reference on where a web server lies on the stack. [Take Me to the Top](#what-happens-when-you-type-google.com-in-your-browser-and-Press-enter?)
+
+
 
 ## Application Server
-> incomplete  
-In this section, discuss the role of application servers in hosting and executing web applications. Explain how application servers interact with the web server and process dynamic content, such as server-side scripts or database queries.
+For dynamic web applications, an application server plays a crucial role. It hosts and executes server-side scripts or applications, processing data and generating dynamic content that can be displayed on the webpage. Application servers, like `Tomcat` or `Node.js`, interact with the web server to handle specific tasks, such as executing server-side code, querying databases, or integrating with external services. They provide the necessary runtime environment and services for the web application to function properly.
+
+> **Example**:  
+>> Imagine a social media platform where users can post updates, follow other users, and engage in various activities. The application server is responsible for handling these dynamic interactions. When a user submits a post or performs an action, such as following another user, the application server processes the request. It executes server-side scripts or applications, which can be written in languages like Java, Python, or Node.js, to perform the necessary operations. This may include updating the database, generating personalized content, executing complex algorithms, or interacting with external services or APIs.
+
+
 
 ## Database
-> incomplete 
-In this section, explore the involvement of databases in serving web applications. Discuss how web applications retrieve and store data using database management systems (e.g., MySQL, PostgreSQL) and the significance of efficient database design.
+Web applications often rely on databases to store and retrieve data. When processing user requests, the application server may interact with a database management system (DBMS), such as `MySQL`, `PostgreSQL`, or `MongoDB`. The DBMS manages the storage, retrieval, and manipulation of structured or unstructured data. The application server sends queries to the database to fetch or update information, enabling the web application to provide personalized and dynamic content based on user interactions.
+
+> `Example Scenario`:  
+>> In an online shopping website, the application server interacts with a database management system (DBMS) to store and retrieve product information, user profiles, order details, and other relevant data. When a user adds an item to their cart, the application server sends a query to the database to update the inventory and record the purchase. Similarly, when a user searches for a specific product, the application server queries the database to retrieve relevant information. The database allows the web application to provide personalized and dynamic content based on user interactions, ensuring efficient data management and retrieval.
+
+> Please review our Infrastructure Diagram for reference on databases and application servers.
+
+
 
 ## Conclusion
-> incomplete
+And that is about it! I hope this write-up provides insights, to you the reader, into how the internet functions and how web applications are delivered to end-users. I learned more about DNS as I prepped this. And I wished that by unraveling these technical details, you gain a deeper understanding of the complex processes that power the web. If you liked my stuff, buy me coffee :)
+
 
 ## References:
 > 1. Working With HTTPS in Load Balancing: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04)  
-
 > 2. What HTTPS IS - on [instantssl](https://www.instantssl.com/http-vs-https).  
-
 > 3. What HTTP IS - [HTTP IETF-rfc](https://datatracker.ietf.org/doc/html/rfc7540)  
-
 > 4. HTTP Specification [view on Internet Engineering Task Force (IETF)-rfc ](https://www.ietf.org/rfc/rfc4251.txt)  
-
 > 5. What is TCP/IP and How Does it Work? [view-source on avast.com](https://www.avast.com/c-what-is-tcp-ip#)  
