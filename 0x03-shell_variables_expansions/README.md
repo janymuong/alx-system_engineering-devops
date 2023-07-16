@@ -1,7 +1,8 @@
 # Shell, Init Files, Variables, and Expansions
 
 > **About**:  
-> *init files*, *shell variables*, and *expansions* in `bash`. It covers essential topics such as shell initialization files, variable management, expansions, shell arithmetic, and the alias command.
+> *Init Files*, *Shell Variables*, and *Expansions* in `bash`.  
+> It covers essential topics such as shell initialization files, variable management, expansions, shell arithmetic, and the alias command.
 
 ## Objectives
 
