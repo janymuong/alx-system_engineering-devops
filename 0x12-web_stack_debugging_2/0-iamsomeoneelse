@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-# this script runs the "whoami" command under the user passed as an argument:
-sudo -u "$1" whoami # -c "whoami"
+# run the whoami command under the user passed as an argument
+sudo -u "$1" whoami
