@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
-# run the whoami command under the user passed as an argument
-
-if [ $# -eq 1 ]; then
-    if id -u "$1" >/dev/null 2>&1; then
-	sudo -u "$1" "whoami"
-    fi
-fi
+# this script runs the "whoami" command under the user passed as an argument:
+sudo -u "$1" whoami # -c "whoami"
