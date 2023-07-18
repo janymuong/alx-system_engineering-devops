@@ -43,4 +43,6 @@ The following servers running on `Ubuntu 20.04 LTS` are available for use in thi
 ```
 
 ----
-![img](./img/stuff_gif.gif)
+<div align="center">
+    <img src="./img/stuff_gif.gif" height="200" width="600" />
+</div>
