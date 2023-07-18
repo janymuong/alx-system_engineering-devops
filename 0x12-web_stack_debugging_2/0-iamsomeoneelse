@@ -3,4 +3,4 @@
 #	under the user passed as an argument.
 
 arg_name="$1"
-sudo -u "$arg_name" whoami # -c "whoami"
+sudo -u "$arg_name" whoami
