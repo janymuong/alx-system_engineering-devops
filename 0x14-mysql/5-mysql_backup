@@ -11,4 +11,3 @@ mysqldump -uroot -p"$1" --all-databases > backup.sql
 
 # compress the MySQL dump to a tar.gz archive; rm original dump file
 tar -czvf "$backup_date.tar.gz" backup.sql
-rm backup.sql
