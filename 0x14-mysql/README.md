@@ -1,6 +1,11 @@
 # MySQL: Database Backup and Replication
 
-## Table of Contents
+<div align="center">
+    <img src="./img/stuff_gif.gif" height="300" width="700" />
+</div>
+
+---
+## Jump To:
 - [Project Overview](#project-overview)
 - [Learning Objectives](#learning-objectives)
 - [Servers Information](#server-requirements-information)
@@ -17,7 +22,7 @@ This project aims to manage database `backups` and `replicas` for `MySQL` databa
 - The importance of storing database backups in different physical locations for disaster recovery.
 - The regular operation to verify the effectiveness of your database backup strategy.
 
-## Server Requirements Information:
+## Server Requirements Information
 The following servers running on `Ubuntu 20.04 LTS` are available for use in this project.
 
 | Name           | Username | IP              | State    |
@@ -26,12 +31,12 @@ The following servers running on `Ubuntu 20.04 LTS` are available for use in thi
 | SOME-ID-web-02  | ubuntu   | SERVER_IP  | running  |
 | SOME-ID-lb-01   | ubuntu   | SERVER_IP   | running  |
 
-## Scripts Info
+## Scripts Info:
 1. `5-mysql_backup` - this script creates a backup of the MySQL database and stores it in a specified directory. It ensures that the backup strategy is working effectively and that the data can be restored if needed.
 
 2. `4-mysql_configuration_primary, 4-mysql_configuration_replica` - this script sets up a database main dbms and replica on a designated server. It configures the replication process to keep the replica in sync with the primary database.
 
-## Usage:
+## Usage
 ```bash
     - Ensure you have the required permissions to execute Bash scripts - `chmod +x filename` on each script.
     - Modify the server information and configuration variables within the scripts according to your environment.
@@ -41,8 +46,3 @@ The following servers running on `Ubuntu 20.04 LTS` are available for use in thi
 # run scripts in command-line like this:
 ./4-mysql_configuration_primary
 ```
-
-----
-<div align="center">
-    <img src="./img/stuff_gif.gif" height="200" width="600" />
-</div>
