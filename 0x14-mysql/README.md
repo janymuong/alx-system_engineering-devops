@@ -115,6 +115,7 @@ $
 > View the records in MySQL shell:
 
 ```bash
+# web 01
 $ mysql -uroot -pyour_passwd -e "use tyrell_corp; select * from nexus6"
 mysql: [Warning] Using a password on the command line interface can be insecure.
 +----+----------+
@@ -129,7 +130,7 @@ $
 ```
 
 - Show status of main db (the db to replicate):  
-> NOte the `MASTER_LOG_FILE` and the Position Values. You will use them in the later stage.
+> NOte the `MASTER_LOG_FILE` and the `Position` Values. You will use them in the later stage.
 ```bash
 $ mysql -uroot -pyour-passwd
 mysql: [Warning] Using a password on the command line interface can be insecure.
@@ -153,3 +154,119 @@ mysql> show master status;
 +------------------+----------+--------------+------------------+-------------------+
 1 row in set (0.00 sec)
 
+
+
+- SSH into Server 2:
+
+```bash
+# web 02
+$ ssh ubuntu@54.157.128.152
+Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-1021-aws x86_64)
+...
+*** System restart required ***
+Last login: Wed Jul 19 14:40:48 2023 from 41.90.66.13
+
+# login as root MySQL server user:
+$ mysql -uroot -punix-xkcdnotserious
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 5.7.42-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+# create tyrell_corp and nexus6 table(empty) in MySQL shell:
+mysql> CREATE DATABASE IF NOT EXISTS tyrell_corp;
+...
+mysql> CREATE TABLE IF NOT EXISTS tyrell_corp.nexus6 (     id INT PRIMARY KEY AUTO_INCREMENT,     name VARCHAR(255) NOT NULL );
+...
+```
+
+- Setup user `replica_user` to start replication
+
+> Well, you have to remember you NOted the `MASTER_LOG_FILE` and the `Position` values from some step up here; you will use them now.
+
+```bash
+# web 02 MySQL shell:
+mysql> CHANGE MASTER TO MASTER_HOST='add-server-IP', MASTER_USER='replica_user', MASTER_PASSWORD='unix-xkcdnotserious', MASTER_LOG_FILE='mysql-bin.000002', MASTER_LOG_POS=435;
+```
+
+- Start Replication(still in mysql console):
+
+```bash
+mysql> START SLAVE;
+...
+
+# show status use this to verify replication is working/running. observe especially `Slave_IO_Running` and `Slave_SQL_Running`
+mysql> SHOW SLAVE STATUS\G
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+                  Master_Host: 54.196.27.23
+                  Master_User: replica_user
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: mysql-bin.000002
+          Read_Master_Log_Pos: 715
+               Relay_Log_File: mysql-relay-bin.000002
+                Relay_Log_Pos: 600
+        Relay_Master_Log_File: mysql-bin.000002
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+              Replicate_Do_DB:
+          Replicate_Ignore_DB:
+           Replicate_Do_Table:
+       Replicate_Ignore_Table:
+      Replicate_Wild_Do_Table:
+  Replicate_Wild_Ignore_Table:
+                   Last_Errno: 0
+                   Last_Error:
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 715
+              Relay_Log_Space: 807
+              Until_Condition: None
+               Until_Log_File:
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File:
+           Master_SSL_CA_Path:
+              Master_SSL_Cert:
+            Master_SSL_Cipher:
+               Master_SSL_Key:
+        Seconds_Behind_Master: 0
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error:
+               Last_SQL_Errno: 0
+               Last_SQL_Error:
+  Replicate_Ignore_Server_Ids:
+             Master_Server_Id: 1
+                  Master_UUID: e9304182-256b-11ee-88db-0637a6795dad
+             Master_Info_File: /var/lib/mysql/master.info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+      Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
+           Master_Retry_Count: 86400
+                  Master_Bind:
+      Last_IO_Error_Timestamp:
+     Last_SQL_Error_Timestamp:
+               Master_SSL_Crl:
+           Master_SSL_Crlpath:
+           Retrieved_Gtid_Set:
+            Executed_Gtid_Set:
+                Auto_Position: 0
+         Replicate_Rewrite_DB:
+                 Channel_Name:
+           Master_TLS_Version:
+1 row in set (0.01 sec)
+
+mysql>
+```
+
+> SSH into server 1 again and add one more record to the table, and then SSH into server 2; see if the record is replicated in the replica table/db.  
+> And that is how replication works, man :)
