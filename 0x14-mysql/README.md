@@ -181,7 +181,7 @@ mysql> show master status;
 
 ```bash
 # web 02
-$ ssh ubuntu@54.157.128.152
+$ ssh ubuntu@web-02-IP
 Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-1021-aws x86_64)
 ...
 *** System restart required ***
@@ -215,17 +215,17 @@ mysql> CREATE TABLE IF NOT EXISTS tyrell_corp.nexus6 (     id INT PRIMARY KEY AU
 
 ```bash
 # web 02 MySQL shell:
-mysql> CHANGE MASTER TO MASTER_HOST='add-server-IP', MASTER_USER='replica_user', MASTER_PASSWORD='unix-xkcdnotserious', MASTER_LOG_FILE='mysql-bin.000002', MASTER_LOG_POS=435;
+mysql> CHANGE MASTER TO MASTER_HOST='add-web-01-IP', MASTER_USER='replica_user', MASTER_PASSWORD='replica_userpasswdxkcd', MASTER_LOG_FILE='mysql-bin.000002', MASTER_LOG_POS=435;
 ```
 
 - Start Replication(still in mysql console):
 
 ```bash
-mysql> START SLAVE;
+mysql> start slave;
 ...
 
 # show status use this to verify replication is working/running. observe especially `Slave_IO_Running` and `Slave_SQL_Running`
-mysql> SHOW SLAVE STATUS\G
+mysql> show slave status\g
 *************************** 1. row ***************************
                Slave_IO_State: Waiting for master to send event
                   Master_Host: 54.196.27.23
