@@ -67,7 +67,28 @@ cat prep_replica | mysql -hlocalhost -uroot -p
 ---
 ## Specific Source-Replica Setup:
 ### Helper Scripts:
-> view replica_user, source_replica, prep_replica My`SQL` files for creating db users, creating source db; and populating the db with some records.  
+> view `replica_user`, `source_replica`, `prep_replica` **SQL** files for creating db users, creating source db; and populating the db with some records.  
+
+### Firewall TCP rules:
+> Configure ufw on server 1 to allow connection from server 2. This is required for the repliaction:
+```bash
+$ cat script_ufw.sh
+#!/usr/bin/env bash
+# run: sudo ./script_ufw.sh
+
+# configure ufw - blocks all ingress, except these TCP ports:
+#	22 (SSH), 443 (HTTPS SSL), 80 (HTTP) and MySQL port 3306
+
+sudo apt-get update -y
+sudo apt-get install -y ufw
+sudo ufw default deny incoming
+sudo ufw allow 22/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 3306/tcp # or use: `sudo ufw allow from server2-IP-ADDRESS to any port 3306`
+echo "yes" | sudo ufw enable
+sudo ufw status
+```
 
 ### Replication:
 `config files`:
