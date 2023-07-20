@@ -6,7 +6,7 @@
 
 ---
 ## Contents:
-- [Project Overview](#project-overview)
+- [Source-Replica Background:](#source-replica-background)
 - [Learning Objectives](#learning-objectives)
 - [Servers Information](#server-requirements-information)
 - [Scripts Description](#scripts-info)
@@ -69,7 +69,7 @@ cat prep_replica | mysql -hlocalhost -uroot -p
 ---
 ## Specific Source-Replica Setup:
 ### Helper Scripts:
-> view []`replica_user`](./replica_user), [`source_replica`](./source_replica), [`prep_replica`](./prep_replica) **SQL** files for creating db users, creating source db; and populating the db with some records.  
+> view [`replica_user`](./replica_user), [`source_replica`](./source_replica), [`prep_replica`](./prep_replica) **SQL** files for creating db users, creating source db; and populating the db with some records.  
 
 ### Firewall TCP rules:
 > Configure ufw on server 1 to allow connection from server 2. This is required for the replication:
