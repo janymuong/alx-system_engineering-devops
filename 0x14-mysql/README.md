@@ -5,12 +5,14 @@
 </div>
 
 ---
-## Jump To:
+## Contents:
 - [Project Overview](#project-overview)
 - [Learning Objectives](#learning-objectives)
 - [Servers Information](#server-requirements-information)
 - [Scripts Description](#scripts-info)
 - [Usage](#usage)
+- [Jump To Replication](#replication
+- [MySQL Insatllation](#appendix)
 
 
 ## Project Overview
