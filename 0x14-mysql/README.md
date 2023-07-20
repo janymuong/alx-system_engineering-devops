@@ -351,8 +351,11 @@ sTSKHe+QnnnoFmu4gnmDU31i
 
 ```bash
 # paste/save it in a file called signature.key:
-cat > signagure.key # and paste
-# or `vi signature.key` and paste/save
+$ cat > signagure.key # and paste
+# CTRL + D
+$
+# or 
+$ vi signature.key` # and paste/save
 ```
 
 #### [How to] Install mysql 5.7.* - [resouce page](https://intranet.alxswe.com/concepts/100002):  
@@ -363,7 +366,7 @@ cat > signagure.key # and paste
 sudo apt-key add signature.key
 ```
 
-> Info on More Lines Below:  
+> Info on Subsequent Lines Below:  
 >> You add the MySQL 5.7 repository to the list of repositories that Ubuntu uses to find software. This is done by creating a new file called `mysql.list` in the directory `/etc/apt/sources.list.d/`. The file contains a line that specifies the URL of the ***MySQL 5.7 repository***. You update the list of repositories that Ubuntu uses to find software. This is done by running the apt-get update command.
 You check the available versions of MySQL 5.7. This is done by running the `apt-cache policy mysql-server` command.
 Install MySQL 5.7.* eventually. 
