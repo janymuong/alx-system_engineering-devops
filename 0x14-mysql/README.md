@@ -31,7 +31,7 @@ Binary log file position-based replication is viable for many use cases, but thi
 
 The mechanics of transaction-based replication are similar to binary log file-based replication: whenever a database transaction occurs on the source, MySQL assigns and records a GTID for the transaction in the binary log file along with the transaction itself. The GTID and the transaction are then transmitted to the source’s replicas for them to process.
 
-MySQL’s transaction-based replication has a number of benefits over its traditional replication method. For example, because both a `source` and its `replicas` preserve GTIDs, if either the source or a replica encounter a transaction with a GTID that they have processed before they will skip that transaction. This helps to ensure consistency between the source and its replicas. Additionally, with transaction-based replication replicas don’t need to know the binary log coordinates of the next database event to process. This means that starting new replicas or changing the order of replicas in a replication chain is far less complicated.
+MySQL’s transaction-based replication has a number of benefits over its traditional replication method. For example, because both a `source` and its `replicas` preserve GTIDs, if either the source or a replica encounter a transaction with a GTID that they have processed before they will skip that transaction. This helps to ensure consistency between the source and its replicas. Additionally, with *transaction-based replication* replicas don’t need to know the binary log coordinates of the next database event to process. This means that starting new replicas or changing the order of replicas in a replication chain is far less complicated.
 
 
 ## Learning Objectives
@@ -69,7 +69,7 @@ cat prep_replica | mysql -hlocalhost -uroot -p
 ---
 ## Specific Source-Replica Setup:
 ### Helper Scripts:
-> view `replica_user`, `source_replica`, `prep_replica` **SQL** files for creating db users, creating source db; and populating the db with some records.  
+> view []`replica_user`](./replica_user), [`source_replica`](./source_replica), [`prep_replica`](./prep_replica) **SQL** files for creating db users, creating source db; and populating the db with some records.  
 
 ### Firewall TCP rules:
 > Configure ufw on server 1 to allow connection from server 2. This is required for the replication:
@@ -161,7 +161,7 @@ $
 
 ```bash
 # web 01
-$ mysql -uroot -pyour_passwd -e "use tyrell_corp; select * from nexus6"
+$ mysql -uroot -punix-xkcdnotserious -e "use tyrell_corp; select * from nexus6"
 mysql: [Warning] Using a password on the command line interface can be insecure.
 +----+----------+
 | id | name     |
@@ -177,7 +177,7 @@ $
 - Show status of main db (the db to replicate):  
 > NOte the `MASTER_LOG_FILE` and the `Position` Values. You will use them in the later stage.
 ```bash
-$ mysql -uroot -pyour-passwd
+$ mysql -uroot -punix-xkcdnotserious
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 360
@@ -365,7 +365,7 @@ sudo apt-key add signature.key
 
 > Info on More Lines Below:  
 >> You add the MySQL 5.7 repository to the list of repositories that Ubuntu uses to find software. This is done by creating a new file called `mysql.list` in the directory `/etc/apt/sources.list.d/`. The file contains a line that specifies the URL of the ***MySQL 5.7 repository***. You update the list of repositories that Ubuntu uses to find software. This is done by running the apt-get update command.
-You check the available versions of MySQL 5.7. This is done by running the a`pt-cache policy mysql-server` command.
+You check the available versions of MySQL 5.7. This is done by running the `apt-cache policy mysql-server` command.
 Installs MySQL 5.7. 
 
 ```bash
@@ -385,4 +385,4 @@ mysql-server:
 $
 $ sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
 ```
-> MySQL server setup wizards will display type a passwdord for the `root` user (a MySQL user called **root**). Setup a password or blank.
+> MySQL server setup wizard will display. Type and re-type a password for the `root` user (a MySQL user called **root**). Setup a password or blank.
