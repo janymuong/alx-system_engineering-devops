@@ -70,7 +70,7 @@ cat prep_replica | mysql -hlocalhost -uroot -p
 > view `replica_user`, `source_replica`, `prep_replica` **SQL** files for creating db users, creating source db; and populating the db with some records.  
 
 ### Firewall TCP rules:
-> Configure ufw on server 1 to allow connection from server 2. This is required for the repliaction:
+> Configure ufw on server 1 to allow connection from server 2. This is required for the replication:
 ```bash
 $ cat script_ufw.sh
 #!/usr/bin/env bash
@@ -90,6 +90,28 @@ echo "yes" | sudo ufw enable
 sudo ufw status
 ```
 
+
+```bash
+# web-01:
+$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+Nginx HTTP                 ALLOW       Anywhere
+22/tcp                     ALLOW       Anywhere
+443/tcp                    ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+3306                       ALLOW       Anywhere
+3306                       ALLOW       Your-Server2-IP
+Nginx HTTP (v6)            ALLOW       Anywhere (v6)
+22/tcp (v6)                ALLOW       Anywhere (v6)
+443/tcp (v6)               ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+3306 (v6)                  ALLOW       Anywhere (v6)
+```
+
+
 ### Replication:
 `config files`:
 SSH into each server and edit the configuration files. 
@@ -97,7 +119,7 @@ SSH into each server and edit the configuration files.
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 > Ascertain you comment out the bind address directive.  
-> Edit and save `.cnf` files so that [mysqld] section looks like this. Save and restart MySQL server in each case.
+> Edit and save the `.cnf` files so that `[mysqld]` section looks like this. Save and ***restart MySQL server*** in each case.
 ```bash
 # web 1:  /etc/mysql/mysql.conf.d/mysqld.cnf:
 
@@ -289,5 +311,76 @@ Master_SSL_Verify_Server_Cert: No
 mysql>
 ```
 
+  
+
 > SSH into server 1 again and add one more record to the table, and then SSH into server 2; see if the record is replicated in the replica table/db.  
 > And that is how replication works, man :)
+
+---
+## ```APPENDIX```
+
+### MySQL Installation Guide and Resource:
+
+> This is a project on creating redundancy; replicas and backups of a MySQL dbms.
+
+- Read through resources on: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-choose-a-redundancy-plan-to-ensure-high-availability#sql-replication) to understand WHAT **RAID** IS.  
+
+- Read through [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql) on Digital Ocean as well to understand replication and how to do a `source-replica` setup.
+
+
+### Install MySQL 5.7.*
+Read about *Signature Checking Using GnuPG* on this MySQL docs resources site: [https://dev.mysql.com/](https://dev.mysql.com/doc/refman/5.7/en/checking-gpg-signature.html).
+
+Copy the key from there - it looks like this:
+```bash
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: SKS 1.1.6
+Comment: Hostname: pgp.mit.edu
+
+mQINBGG4urcBEACrbsRa7tSSyxSfFkB+KXSbNM9rxYqoB78u107skReefq4/+Y72TpDvlDZL
+mdv/lK0IpLa3bnvsM9IE1trNLrfi+JES62kaQ6hePPgn2RqxyIirt2seSi3Z3n3jlEg+mSdh
+AvW+b+hFnqxo+TY0U+RBwDi4oO0YzHefkYPSmNPdlxRPQBMv4GPTNfxERx6XvVSPcL1+jQ4R
+2cQFBryNhidBFIkoCOszjWhm+WnbURsLheBp757lqEyrpCufz77zlq2gEi+wtPHItfqsx3rz
+...
+sTSKHe+QnnnoFmu4gnmDU31i
+=Xqbo
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+```bash
+# paste/save it in a file called signature.key:
+cat > signagure.key # and paste
+# or `vi signature.key` and paste/save
+```
+
+#### [How to] Install mysql 5.7.* - [resouce page](https://intranet.alxswe.com/concepts/100002):  
+
+- Copied GPG key from the MySQL website asved to a file called `signature.key` is used to verify the validity of the packages that are downloaded from the MySQL 5.7 `apt` repo.
+
+```bash
+sudo apt-key add signature.key
+```
+
+> Info on More Lines Below:  
+>> You add the MySQL 5.7 repository to the list of repositories that Ubuntu uses to find software. This is done by creating a new file called `mysql.list` in the directory `/etc/apt/sources.list.d/`. The file contains a line that specifies the URL of the ***MySQL 5.7 repository***. You update the list of repositories that Ubuntu uses to find software. This is done by running the apt-get update command.
+You check the available versions of MySQL 5.7. This is done by running the a`pt-cache policy mysql-server` command.
+Installs MySQL 5.7. 
+
+```bash
+$ sudo apt-get update -y
+$ sudo apt-cache policy mysql-server
+mysql-server:
+  Installed: (none)
+  Candidate: 8.0.27-0ubuntu0.20.04.1
+  Version table:
+     8.0.27-0ubuntu0.20.04.1 500
+        500 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages
+        500 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages
+     8.0.19-0ubuntu5 500
+        500 http://archive.ubuntu.com/ubuntu focal/main amd64 Packages
+     5.7.37-1ubuntu18.04 500
+        500 http://repo.mysql.com/apt/ubuntu bionic/mysql-5.7 amd64 Packages
+$
+$ sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+```
+> MySQL server setup wizards will display type a passwdord for the `root` user (a MySQL user called **root**). Setup a password or blank.
