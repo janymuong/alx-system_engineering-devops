@@ -153,7 +153,7 @@ mysql> show master status;
 | mysql-bin.000001 |      433 | tyrell_corp  |                  |                   |
 +------------------+----------+--------------+------------------+-------------------+
 1 row in set (0.00 sec)
-
+```
 
 
 - SSH into Server 2:
