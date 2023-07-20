@@ -357,7 +357,7 @@ cat > signagure.key # and paste
 
 #### [How to] Install mysql 5.7.* - [resouce page](https://intranet.alxswe.com/concepts/100002):  
 
-- Copied GPG key from the MySQL website asved to a file called `signature.key` is used to verify the validity of the packages that are downloaded from the MySQL 5.7 `apt` repo.
+- The copied GPG key from the MySQL website, and asved to a file called `signature.key`, is used to verify the validity of the packages that are downloaded from the MySQL 5.7 `apt` repo.
 
 ```bash
 sudo apt-key add signature.key
@@ -366,7 +366,7 @@ sudo apt-key add signature.key
 > Info on More Lines Below:  
 >> You add the MySQL 5.7 repository to the list of repositories that Ubuntu uses to find software. This is done by creating a new file called `mysql.list` in the directory `/etc/apt/sources.list.d/`. The file contains a line that specifies the URL of the ***MySQL 5.7 repository***. You update the list of repositories that Ubuntu uses to find software. This is done by running the apt-get update command.
 You check the available versions of MySQL 5.7. This is done by running the `apt-cache policy mysql-server` command.
-Installs MySQL 5.7. 
+Install MySQL 5.7.* eventually. 
 
 ```bash
 $ sudo apt-get update -y
