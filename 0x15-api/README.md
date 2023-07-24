@@ -1,11 +1,11 @@
 # API - Application Programming Interface
 
 > about: `API`, Microservices, `CSV/JSON` formatting, Scripting etc  
->> Relevant in various differing context where bash scripting may be ineeficient e.g. system administration, especially in SRE (Site Reliability Engineering). This emphasizes on you being open to being well-versed in various programming languages, including Python, which allows them to efficiently manage systems and build APIs and to interact with them.
+>> Relevant in various differing context where bash scripting may be ineficient e.g. system administration, especially in SRE (Site Reliability Engineering). This emphasizes on you being open to being well-versed in various programming languages, including Python, which allows them to efficiently manage systems and build APIs and to interact with them.
 
 
 ## What an API IS
-> One Reason for API, among aother things - diff: `shell`:  
+> One Reason for API necessity, among other things:  
 >> shell scripting doesn't have exceptions or decent data structures - shell scripting is ugly; e.g if working on patch-work, and debugging :)
 
 `API` stands for *Application Programming Interface*. It defines a set of rules and protocols that allows different software applications to communicate and interact with each other. One popular way to expose an application and dataset is to use an API. Often, they are the public facing part of websites and micro-services so that allow outsiders to interact with them – access and modify their data
