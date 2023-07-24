@@ -42,26 +42,22 @@ def todo_progress(user_id):
         done_tasks = sum(1 for task in todos_data if task.get('completed'))
 
         print(f'Employee {employee_name} is done '
-              'with tasks({done_tasks}/{total_tasks}):')
+              f'with tasks({done_tasks}/{total_tasks}):')
 
         for task in todos_data:
             if task.get('completed'):
                 print(f"\t{task.get('title')}")
 
     except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
+        print(f'Error: {e}')
         sys.exit(1)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print('Usage: python3 0-gather_data_from_an_API.py <employee_id>')
-        sys.exit(1)
-
     user_id = sys.argv[1]
 
     if not user_id.isdigit():
-        print("Error: Employee ID must be an integer.")
+        print('Error: Employee ID must be an integer.')
         sys.exit(1)
 
     todo_progress(int(user_id))
