@@ -69,6 +69,10 @@ def todo_progress(user_id):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print('Usage: python3 1-export_to_CSV.py <employee_id>')
+        sys.exit(1)
+
     user_id = sys.argv[1]
 
     if not user_id.isdigit():
