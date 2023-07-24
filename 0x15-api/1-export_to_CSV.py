@@ -45,21 +45,13 @@ def todo_progress(user_id):
         file_name = f'{employee_id}.csv'
 
         with open(file_name, mode='w', newline='') as csv_file:
-            fieldnames = ['USER_ID',
-                          'USERNAME',
-                          'TASK_COMPLETED_STATUS',
-                          'TASK_TITLE']
-            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-
-            writer.writeheader()
+            writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
 
             for task in todos_data:
                 completed_status = 'True' if task.get('completed') else 'False'
                 task_title = task.get('title')
-                writer.writerow({'USER_ID': employee_id,
-                                 'USERNAME': employee_name,
-                                 'TASK_COMPLETED_STATUS': completed_status,
-                                 'TASK_TITLE': task_title})
+                writer.writerow([str(employee_id), employee_name,
+                                 completed_status, task_title])
 
         print(f'Data exported to {file_name}')
 
@@ -69,9 +61,6 @@ def todo_progress(user_id):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print('Usage: python3 1-export_to_CSV.py <employee_id>')
-        sys.exit(1)
 
     user_id = sys.argv[1]
 
