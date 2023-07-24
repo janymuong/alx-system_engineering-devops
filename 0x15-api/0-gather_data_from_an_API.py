@@ -46,10 +46,10 @@ def todo_progress(user_id):
 
         for task in todos_data:
             if task.get('completed'):
-                print(f"\t{task.get('title')}")
+                print(f"\t {task.get('title')}")
 
     except requests.exceptions.RequestException as e:
-        print(f'Error: {e}')
+        print(f"Error: {e}")
         sys.exit(1)
 
 
@@ -57,7 +57,7 @@ if __name__ == '__main__':
     user_id = sys.argv[1]
 
     if not user_id.isdigit():
-        print('Error: Employee ID must be an integer.')
+        print("Error: Employee ID must be an integer.")
         sys.exit(1)
 
     todo_progress(int(user_id))
