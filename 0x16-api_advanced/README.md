@@ -13,7 +13,7 @@ This project involves interacting with an API to retrieve and manipulate data fr
 
 ## Premise
 
-This project focuses on using the Reddit API to accomplish various tasks such as fetching posts, sorting data, and performing recursive API calls. The project follows specific requirements outlined in the project prompt.
+This project focuses on using the Reddit API to accomplish various tasks such as fetching posts, sorting data, and performing recursive API calls. The project follows specific requirements outlined in the project instructions.
 
 ## Getting Started:
 Install the required dependencies:
