@@ -4,7 +4,7 @@
 
 This project involves interacting with an API to retrieve and manipulate data from the API data. The goal is to demonstrate proficiency in working with APIs, handling `JSON` data, pagination, and other relevant skills.
 
-## [Jump To]():
+#### [Jump To:]()
 
 - [Premise](#premise)
 - [Getting Started](#getting-started)
@@ -16,8 +16,7 @@ This project involves interacting with an API to retrieve and manipulate data fr
 This project focuses on using the Reddit API to accomplish various tasks such as fetching posts, sorting data, and performing recursive API calls. The project follows specific requirements outlined in the project prompt.
 
 ## Getting Started:
-1. Navigate to the project directory.
-2. Install the required dependencies:
+Install the required dependencies:
 
 ```bash
 pip install requests
