@@ -85,5 +85,5 @@ By generating an application key, you can control the level of access the third-
 ### Reference:
 
 For more detailed instructions, refer to the official Datadog documentation:
-- [Datadog Getting Started Guide](https://docs.datadoghq.com/getting_started/)
+- [Datadog Docs](https://docs.datadoghq.com/getting_started/)
 
