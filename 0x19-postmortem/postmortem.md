@@ -87,9 +87,10 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 </div>
 
 <br/><br/>
+
 ### Corrective and Preventative Measures:
 This segment lists out suggested corrective measures, and preventative measures.
-
+The scipts with functionality described below could be wrapped within the container as part of the server dependencies for Apache.
 - Regularly audit and cleanse helper scripts to keep web server up with reboots and preserve settings.
 - Monitor connection activities and pool usage.
 - Create scripts to automatically thwart any abnormal port 80 connections.
