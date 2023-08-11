@@ -15,8 +15,9 @@ By the On Call Person: Jany Muong
 ---
 ### Background Context:
 
-**ALX Software Engineering/Holberton School** uses some `Apache HTTP Server` to teach its students on the working of server and web infrastructure etc. Students are given a full-on functioning Docker container with the requisite resources for learning concepts in real time. In this context a student uses a Docker container running a GNU/Linux Ubuntu Server that hosts an Apache web server. The "Docker Container" meant to be the vessel of knowledge, holding the Apache web server within its byte-filled heart, which would serve out beautiful static content to HTTP requests; it instead serves "404" messages and the likes :). In this tale of a seeming misconfig, darkness lurked. A server's promise of "`Hello Holberton`" vanished, replaced by a "`Empty reply from server`" chant - it went 'incognito'. That is not a very exciting situation, is it?
+**ALX Software Engineering/Holberton School** uses some `Apache HTTP Server` to teach its students on the working of server and web infrastructure etc. Students are given a full-on functioning Docker container with the requisite resources for learning concepts in real time. In this context a student uses a Docker container running a GNU/Linux Ubuntu Server that hosts an Apache web server. The "Docker Container" meant to be the vessel of knowledge, holding the Apache web server within its byte-filled heart, which would serve out beautiful static content to HTTP requests; it instead serves "404" messages and the likes :). In this tale of a seeming misconfig, darkness lurked. A server's promise of "`Hello Holberton`" vanished, replaced by a "`Empty reply from server`" chant - it went 'incognito'. That is not a very exciting situation, is it?  
 
+<br/>
 
 > **Note**  
 > The container described above can be run from this base [`image`](https://hub.docker.com/r/holbertonschool/265-0/tags) from [Docker Hub](https://hub.docker.com/):  
@@ -49,6 +50,8 @@ isworking  passwd
 root@76f44c0da25e:/# # CTRL + D
 vagrant@vagrant:~$
 ```
+
+<br/><br/>
 
 
 ---
