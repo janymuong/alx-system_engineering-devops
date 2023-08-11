@@ -15,7 +15,7 @@ By the ***On Call Person***: [Jany Muong](https://github.com/janymuong/)
 ---
 ### Background Context:
 
-**ALX Software Engineering/Holberton School** uses some `Apache HTTP Server` to teach its students on the working of server and web infrastructure etc. Students are given a full-on functioning Docker container with the requisite resources for learning concepts in real time. In this context a student uses a Docker container running a GNU/Linux Ubuntu Server that hosts an Apache web server. The "Docker Container" meant to be the vessel of knowledge, holding the Apache web server within its byte-filled heart, which would serve out beautiful static content to HTTP requests; it instead serves "404" messages and the likes :). In this tale of a seeming misconfig, darkness lurked. A server's promise of `'Hello Holberton'` vanished, replaced by a `'Empty reply from server'`" chant - it went 'incognito'. That is not a very exciting situation, is it?  
+**ALX Software Engineering/Holberton School** uses some `Apache HTTP Server` to teach its students on the working of server and web infrastructure etc. Students are given a full-on functioning Docker container with the requisite resources for learning concepts in real time. In this context a student uses a Docker container running a GNU/Linux Ubuntu Server that hosts an Apache web server. However, the "Docker Container" meant to be the vessel of knowledge, holding the Apache web server within its byte-filled heart, which would serve out beautiful static content to HTTP requests; it instead serves "404" messages and the likes :). In this tale of a seeming misconfig, darkness lurked. A server's promise of `'Hello Holberton'` vanished, replaced by a `'Empty reply from server'`" chant. It went 'incognito', basically. That is not a very exciting situation, is it?  
 
 <br/>
 
@@ -58,7 +58,7 @@ vagrant@vagrant:~$
 ## Issue Summary:
 
 - Time:  
-> From **Jun 28, 2023 6:00 AM** to **Jun 28, 2023 12:00 PM (UTC-4)**, students were greeted with `'Empty reply from server'` instead of the promised `'Hello Holberton'`by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive "Hello Holberton" went into hiding, yeah?
+> From **Jun 28, 2023 6:00 AM** to **Jun 28, 2023 12:00 PM (UTC-4)**, students were greeted with an `'Empty reply from server'` text instead of the promised `'Hello Holberton'` served out by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive ***'Hello Holberton'*** went into hiding, yeah?
 
 - **Root Cause:**   
 At first, the team(me) thought it was an invalid configuration of the HTTP server. Ah, the obvious 'go to' heart of all mystery.  
@@ -72,11 +72,11 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 ## Timeline:
 
 - **06:00 AM:** Alas, the cries of confused users echoe. The curtain of error is raised.
-- **06:35 AM:** Our vigilant monitoring system PagerDuty blinks an alert, and the debugging knight wields his mind.
-- **07:40:** Initial theory: A "Hello Holberton" overload? Attempted increased server capacity spell.
+- **06:35 AM:** Our vigilant monitoring system *PagerDuty* blinks an alert, and the debugging knight wields his mind.
+- **07:40:** Initial theory: A 'Hello Holberton' overload? Attempted increased server capacity spell.
 - **08:00 AM:** Knight grows weary; no improvement...
 - **09:10 AM:** The knight veers off-course, blaming the innocent network latency and buffering for crimes not committed.
-- **11:30 AM:** Knight takes a day nap ... zzzzz
+- **11:30 AM:** Knight takes a day nap... zzzzz
 - **12:00 PM:** Knight turns wizard; takes action, `docking` and cleansing the containers, releasing connections so that the ALX-SE 'gremlins' can have peace again.
 - **12:30 PM:** `'Hello Holberton'`
 <br/><br/>
@@ -84,7 +84,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 ## Root Cause and Resolution:
 The initial assumption was that the web server was running :)
-After trying out the usual non-exhaustive debugging flow assumptions e.g. misconfigurations, checking on logs, checking ports, firewalls or memmory overload, we came to the grumpling realization that the `Apache` service was not started on container boot to be begin. The HTTP server was expected to have been up from the jump.
+After trying out the usual non-exhaustive debugging flow assumptions e.g. misconfigurations, checking on logs, checking ports, firewalls or memmory overload, we came to the grumpling realization that the `Apache` service was not started on container boot to be begin with. The HTTP server was expected to have been up from the jump.
 ```bash
 vagrant@vagrant:~$ docker run -p 8080:80 -d -it holbertonschool/265-0
 47ca3994a4910bbc29d1d8925b1c70e1bdd799f5442040365a7cb9a0db218021
@@ -95,7 +95,7 @@ vagrant@vagrant:~$ curl 0:8080
 curl: (52) Empty reply from server
 vagrant@vagrant:~$
 ```
-Here we can see that after starting my Docker container, I `curl` the *port* `8080` mapped to the ***Docker container port 80***, it does not return a page but an error message `curl: (52) Empty reply from server`  
+Here we can see that after starting my Docker container, I `curl` the *port* `8080` mapped to the ***Docker container port 80***, it does not return a page but an error message `'curl: (52) Empty reply from server'`  
 
 <br/>
 
