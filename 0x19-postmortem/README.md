@@ -1,7 +1,7 @@
 # Postmortem
 
 <div align="center">
- <img src="./img/on_call_person.png" width="640" height="300" />
+ <img src="./img/pc-apache.webp" width="640" height="300" />
 </div>
 
 ---
