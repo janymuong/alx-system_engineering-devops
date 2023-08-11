@@ -61,20 +61,21 @@ vagrant@vagrant:~$
 - **Root Cause:**   
 At first, the team(me) thought it was an invalid configuration of the HTTP server. Ah, the obvious 'go to' heart of all mystery.  
 
-> **Pro Tip:** When servers go silent, check if they've simply embarked on a solo journey to find themselves!
+> **Pro Tip:**  
+> When servers go silent, check if they've simply embarked on a solo journey to find themselves!
 > Okay I am joking, it was not that or a misconfiguration. Apache service was not actually started. Yes, it wasn't.
 
 
 ### Timeline:
 
 - **06:00 AM:** Alas, the cries of confused users echoe. The curtain of error is raised.
-- **06:35 AM:** Our vigilant monitoring system PagerDuty blinks an alert, and the debugging knight comes wields his mind.
+- **06:35 AM:** Our vigilant monitoring system PagerDuty blinks an alert, and the debugging knight wields his mind.
 - **14:40:** Initial theory: A "Hello Holberton" overload? Attempted increased server capacity spell.
 - **16:50:** Knight grows weary; no improvement...
 - **23:10:** The knight veers off-course, blaming the innocent network latency and buffering for crimes not committed.
 - **00:30 AM:** Knight sleeps ... zzzzz
 - **05:00 AM:** Knight turns wizard; takes action, `docking` and cleansing the containers, releasing connections so that the ALX-SE 'gremlins' can have peace again.
-- **06:00 AM:** '`Hello Holberton`'
+- **06:00 AM:** `'Hello Holberton'`
 
 
 ### Root Cause and Resolution:
