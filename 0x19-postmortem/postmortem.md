@@ -57,13 +57,13 @@ vagrant@vagrant:~$
 - Time:  
 > From **Jun 26, 2023 6:00 AM**  to **Jun 28, 2023 6:00 AM (UTC-4)**, students were greeted with `Empty reply from server` instead of the promised `Hello Holberton`by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive "Hello Holberton" went into hiding, yeah?
 
-
 - **Root Cause:**   
 At first, the team(me) thought it was an invalid configuration of the HTTP server. Ah, the obvious 'go to' heart of all mystery.  
 
 > **Pro Tip:**  
 > When servers go silent, check if they've simply embarked on a solo journey to find themselves!
 > Okay I am joking, it was not that or a misconfiguration. Apache service was not actually started. Yes, it wasn't.
+<br/><br/>
 
 
 ### Timeline:
@@ -76,6 +76,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 - **00:30 AM:** Knight sleeps ... zzzzz
 - **05:00 AM:** Knight turns wizard; takes action, `docking` and cleansing the containers, releasing connections so that the ALX-SE 'gremlins' can have peace again.
 - **06:00 AM:** `'Hello Holberton'`
+<br/><br/>
 
 
 ### Root Cause and Resolution:
@@ -86,8 +87,8 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 <div align="center">
     <img src="./img/stuff.jpg" alt="stuff" width="500" height="300">
 </div>
-
 <br/><br/>
+
 
 ### Corrective and Preventative Measures:
 This segment lists out suggested corrective measures, and preventative measures.
