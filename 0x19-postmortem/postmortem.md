@@ -52,7 +52,7 @@ vagrant@vagrant:~$
 
 
 ---
-### Issue Summary:
+## Issue Summary:
 
 - Time:  
 > From **Jun 26, 2023 6:00 AM**  to **Jun 28, 2023 6:00 AM (UTC-4)**, students were greeted with `Empty reply from server` instead of the promised `Hello Holberton`by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive "Hello Holberton" went into hiding, yeah?
@@ -66,7 +66,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 <br/><br/>
 
 
-### Timeline:
+## Timeline:
 
 - **06:00 AM:** Alas, the cries of confused users echoe. The curtain of error is raised.
 - **06:35 AM:** Our vigilant monitoring system PagerDuty blinks an alert, and the debugging knight wields his mind.
@@ -79,7 +79,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 <br/><br/>
 
 
-### Root Cause and Resolution:
+## Root Cause and Resolution:
 
 > will fill here
 
@@ -90,7 +90,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 <br/><br/>
 
 
-### Corrective and Preventative Measures:
+## Corrective and Preventative Measures:
 This segment lists out suggested corrective measures, and preventative measures.
 The scipts with functionality described below could be wrapped within the container as part of the server dependencies for Apache.
 - Regularly audit and cleanse helper scripts to keep web server up with reboots and preserve settings.
