@@ -84,7 +84,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 ## Root Cause and Resolution:
 The initial assumption was that the web server was running :)
-After trying out the usual non-exhaustive debugging flow assumptions e.g. misconfigurations, checking on logs, checking ports, firewalls or memmory overload, we came to the grumpling realization that the `Apache` service was not started on container boot to be begin with. The HTTP server was expected to have been up from the jump.
+After trying out the usual non-exhaustive debugging flow assumptions e.g. misconfigurations, checking on logs, checking ports, firewalls or memory overload, we came to the grumpling realization that the `Apache` service was not started on container boot to be begin with. The HTTP server was expected to have been up from the jump.
 ```bash
 vagrant@vagrant:~$ docker run -p 8080:80 -d -it holbertonschool/265-0
 47ca3994a4910bbc29d1d8925b1c70e1bdd799f5442040365a7cb9a0db218021
@@ -127,8 +127,8 @@ vagrant@vagrant:~$
 
 ## Corrective and Preventative Measures:
 This segment lists out suggested corrective measures, and preventative measures.
-The scipts with functionality described below could be wrapped within the container as part of the server dependencies for Apache.
+The scipts with functionality described below could be wrapped within the application dependencies (as part of the server dependencies for Apache) when creating the docker image.
 - Regularly audit and cleanse helper scripts to keep web server up with reboots and preserve settings.
 - Monitor connection activities and pool usage.
 - Create scripts to automatically thwart any abnormal port 80 connections.
-- Add monitoring on server memory to provide keep other services in check so that Apache has all optimization
+- Add monitoring on server memory to keep other services in check so that Apache has all optimization
