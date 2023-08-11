@@ -7,15 +7,15 @@
 > Copyright: [Inzone 404 pages](https://inzonedesign.com/blog/28-cleverly-funny-creative-404-error-pages/)
 
 
-*Posted On: 11th Auguts, 2023*
+*Posted On: 11th August, 2023*
 
-By the On Call Person: Jany Muong
+By the ***On Call Person***: [Jany Muong](https://github.com/janymuong/)
 
 
 ---
 ### Background Context:
 
-**ALX Software Engineering/Holberton School** uses some `Apache HTTP Server` to teach its students on the working of server and web infrastructure etc. Students are given a full-on functioning Docker container with the requisite resources for learning concepts in real time. In this context a student uses a Docker container running a GNU/Linux Ubuntu Server that hosts an Apache web server. The "Docker Container" meant to be the vessel of knowledge, holding the Apache web server within its byte-filled heart, which would serve out beautiful static content to HTTP requests; it instead serves "404" messages and the likes :). In this tale of a seeming misconfig, darkness lurked. A server's promise of "`Hello Holberton`" vanished, replaced by a "`Empty reply from server`" chant - it went 'incognito'. That is not a very exciting situation, is it?  
+**ALX Software Engineering/Holberton School** uses some `Apache HTTP Server` to teach its students on the working of server and web infrastructure etc. Students are given a full-on functioning Docker container with the requisite resources for learning concepts in real time. In this context a student uses a Docker container running a GNU/Linux Ubuntu Server that hosts an Apache web server. The "Docker Container" meant to be the vessel of knowledge, holding the Apache web server within its byte-filled heart, which would serve out beautiful static content to HTTP requests; it instead serves "404" messages and the likes :). In this tale of a seeming misconfig, darkness lurked. A server's promise of `'Hello Holberton'` vanished, replaced by a `'Empty reply from server'`" chant - it went 'incognito'. That is not a very exciting situation, is it?  
 
 <br/>
 
@@ -26,7 +26,7 @@ By the On Call Person: Jany Muong
 ```bash
 vagrant@vagrant:~$ docker run -d -ti holbertonschool/265-0
 Unable to find image 'holbertonschool/265-0' locally
-14.04: Pulling from library/ubuntu
+265-0: Pulling from holbertonschool/265-0
 34667c7e4631: Already exists
 d18d76a881a4: Already exists
 119c7358fbfc: Already exists
@@ -58,7 +58,7 @@ vagrant@vagrant:~$
 ## Issue Summary:
 
 - Time:  
-> From **Jun 26, 2023 6:00 AM**  to **Jun 28, 2023 6:00 AM (UTC-4)**, students were greeted with `Empty reply from server` instead of the promised `Hello Holberton`by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive "Hello Holberton" went into hiding, yeah?
+> From **Jun 27, 2023 6:00 AM** to **Jun 28, 2023 6:00 AM (UTC-4)**, students were greeted with `'Empty reply from server'` instead of the promised `'Hello Holberton'`by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive "Hello Holberton" went into hiding, yeah?
 
 - **Root Cause:**   
 At first, the team(me) thought it was an invalid configuration of the HTTP server. Ah, the obvious 'go to' heart of all mystery.  
@@ -83,10 +83,42 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 
 ## Root Cause and Resolution:
+The initial assumption was that the Web Server was running :)
+After trying out the usual non-exhaustive debugging flow assumptions e.g. misconfigurations, checking on logs, checking ports, firewalls or memmory overload, we came to the grumpling realization that the `Apache` service was not started on container boot to be begin. The HTTP server was expected to have been up from the jump.
+```bash
+vagrant@vagrant:~$ docker run -p 8080:80 -d -it holbertonschool/265-0
+47ca3994a4910bbc29d1d8925b1c70e1bdd799f5442040365a7cb9a0db218021
+vagrant@vagrant:~$ docker ps
+CONTAINER ID        IMAGE                   COMMAND             CREATED             STATUS              PORTS                  NAMES
+47ca3994a491        holbertonschool/265-0   "/bin/bash"         3 seconds ago       Up 2 seconds        0.0.0.0:8080->80/tcp   vigilant_tesla
+vagrant@vagrant:~$ curl 0:8080
+curl: (52) Empty reply from server
+vagrant@vagrant:~$
+```
+Here we can see that after starting my Docker container, I `curl` the *port* `8080` mapped to the ***Docker container port 80***, it does not return a page but an error message `curl: (52) Empty reply from server`  
 
-> will fill here
+<br/>
 
-> My son, you shall tread the path of containers and code, at your discretion!
+So we start it with a script:
+```bash
+root@76f44c0da25e:/# cat apache-script
+#!/usr/bin/env bash
+# Bash: debug fix unresponsive apache server
+sudo systemctl status apache2
+echo "ServerName apacheindocker.com" >> /etc/apache2/apache2.conf
+sudo systemctl start apache2
+root@76f44c0da25e:/#
+```
+
+```bash
+vagrant@vagrant:~$ curl 0:8080
+Hello Holberton
+vagrant@vagrant:~$
+```
+
+<br/>
+
+> "My son, you shall tread the path of containers and code, at your discretion!"
 <div align="center">
     <img src="./img/stuff.jpg" alt="stuff" width="500" height="300">
 </div>
