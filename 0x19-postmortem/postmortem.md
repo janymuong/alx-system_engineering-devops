@@ -58,7 +58,7 @@ vagrant@vagrant:~$
 ## Issue Summary:
 
 - Time:  
-> From **Jun 27, 2023 6:00 AM** to **Jun 28, 2023 6:00 AM (UTC-4)**, students were greeted with `'Empty reply from server'` instead of the promised `'Hello Holberton'`by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive "Hello Holberton" went into hiding, yeah?
+> From **Jun 28, 2023 6:00 AM** to **Jun 28, 2023 12:00 PM (UTC-4)**, students were greeted with `'Empty reply from server'` instead of the promised `'Hello Holberton'`by practice Docker containers. The impact was - most users encountered the dreaded 500 errors, with the peak disruption reaching 100% confusion as students could not practice what they know, I mean coming from a place of having learned new information. The elusive "Hello Holberton" went into hiding, yeah?
 
 - **Root Cause:**   
 At first, the team(me) thought it was an invalid configuration of the HTTP server. Ah, the obvious 'go to' heart of all mystery.  
@@ -73,17 +73,17 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 - **06:00 AM:** Alas, the cries of confused users echoe. The curtain of error is raised.
 - **06:35 AM:** Our vigilant monitoring system PagerDuty blinks an alert, and the debugging knight wields his mind.
-- **14:40:** Initial theory: A "Hello Holberton" overload? Attempted increased server capacity spell.
-- **16:50:** Knight grows weary; no improvement...
-- **23:10:** The knight veers off-course, blaming the innocent network latency and buffering for crimes not committed.
-- **00:30 AM:** Knight sleeps ... zzzzz
-- **05:00 AM:** Knight turns wizard; takes action, `docking` and cleansing the containers, releasing connections so that the ALX-SE 'gremlins' can have peace again.
-- **06:00 AM:** `'Hello Holberton'`
+- **07:40:** Initial theory: A "Hello Holberton" overload? Attempted increased server capacity spell.
+- **08:00 AM:** Knight grows weary; no improvement...
+- **09:10 AM:** The knight veers off-course, blaming the innocent network latency and buffering for crimes not committed.
+- **11:30 AM:** Knight takes a day nap ... zzzzz
+- **12:00 PM:** Knight turns wizard; takes action, `docking` and cleansing the containers, releasing connections so that the ALX-SE 'gremlins' can have peace again.
+- **12:30 PM:** `'Hello Holberton'`
 <br/><br/>
 
 
 ## Root Cause and Resolution:
-The initial assumption was that the Web Server was running :)
+The initial assumption was that the web server was running :)
 After trying out the usual non-exhaustive debugging flow assumptions e.g. misconfigurations, checking on logs, checking ports, firewalls or memmory overload, we came to the grumpling realization that the `Apache` service was not started on container boot to be begin. The HTTP server was expected to have been up from the jump.
 ```bash
 vagrant@vagrant:~$ docker run -p 8080:80 -d -it holbertonschool/265-0
