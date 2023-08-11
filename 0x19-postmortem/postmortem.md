@@ -13,8 +13,8 @@
 
 
 > **Note**  
-> Container [`image`](https://hub.docker.com/r/holbertonschool/265-0/tags) on [Docker Hub](https://hub.docker.com/):  
-> You can pull the Docker base `image` above to a local machine/system and you could run a container from it and use for your practice. See below for reference:  
+> The container described above can be run from this base [`image`](https://hub.docker.com/r/holbertonschool/265-0/tags) on [Docker Hub](https://hub.docker.com/):  
+> You can pull the Docker `image` above to a local machine/system and you could run a container from it and use it for your practice. See below for reference:  
 
 ```bash
 vagrant@vagrant:~$ docker run -d -ti holbertonschool/265-0
