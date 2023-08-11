@@ -10,4 +10,5 @@
 ## About: 
 
 > This is a retrospective review of a broken `Apache HTTP Server` running on a Docker container.  
-> [view-source](./postmortem.md)
+> Based on: [0x0D-web_stack_debugging_0/](../0x0D-web_stack_debugging_0/)  
+> [view-source report](./postmortem.md)
