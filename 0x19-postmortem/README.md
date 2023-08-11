@@ -4,8 +4,7 @@
  <img src="./img/pc-apache.webp" width="640" height="300" />
 </div>
 
-> Copyright: HACKADAY  
-
+> Copyright: **HACKADAY**  
 
 ---
 > This is a retrospective review of a broken `Apache HTTP Server` running on a Docker container.  
