@@ -1,6 +1,8 @@
 # Postmortem
 
-![on_call_person-copyright-alxse/holbertonschool](./img/on_call_person.png)
+<div align="center">
+ <img src="./img/on_call_person.png" width="640" height="300" />
+</div>
 
 ---
 > This is a retrospective review of a broken `Apache HTTP Server` running on a Docker container.  
