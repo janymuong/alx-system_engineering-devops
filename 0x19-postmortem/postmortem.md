@@ -81,8 +81,10 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 > will fill here
 
-<| ![stuff](./img/stuff.jpg) | > My son, you shall tread the path of containers and code, at your discretion! |
-|---------------------------|---------------------------------------------------------------------------|
+> My son, you shall tread the path of containers and code, at your discretion!
+<div align="center">
+    <img src="./img/stuff.jpg" alt="stuff" width="300" height="auto">
+</div>
 
 
 ### Corrective and Preventative Measures:
