@@ -81,16 +81,8 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 > will fill here
 
-<div style="display: flex;">
-  <div style="flex: 1; margin-right: 20px;">
-    <img src="./img/stuff.jpg" alt="stuff" width="300" height="auto">
-  </div>
-  <div style="flex: 2;">
-    <blockquote>
-      <p>My son, you shall tread the path of containers and code, at your discretion!</p>
-    </blockquote>
-  </div>
-</div>
+<| ![stuff](./img/stuff.jpg) | > My son, you shall tread the path of containers and code, at your discretion! |
+|---------------------------|---------------------------------------------------------------------------|
 
 
 ### Corrective and Preventative Measures:
