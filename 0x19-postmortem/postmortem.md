@@ -7,7 +7,7 @@
 > Copyright: [Inzone 404 pages](https://inzonedesign.com/blog/28-cleverly-funny-creative-404-error-pages/)
 
 
-*Posted On: 11th August, 2023*
+*Posted On: August 11th, 2023*
 
 By the ***On Call Person***: [Jany Muong](https://github.com/janymuong/)
 
