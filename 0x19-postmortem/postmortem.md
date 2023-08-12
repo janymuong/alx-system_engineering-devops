@@ -72,8 +72,8 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 ## Timeline:
 
 - **06:00 AM:** Alas, the cries of confused users echoe. The curtain of error is raised.
-- **06:35 AM:** Our vigilant monitoring system *PagerDuty* blinks an alert, and the debugging knight(me) wields his mind.
-- **07:40:** Initial theory: A 'Hello Holberton' overload? Analyzes memory and disk uasge.
+- **06:35 AM:** Our vigilant monitoring system [*PagerDuty*](https://www.pagerduty.com/) blinks an alert, and the debugging knight(me) wields his mind.
+- **07:40:** Initial theory: A 'Hello Holberton' overload? Analyzes memory and disk usage.
 - **08:00 AM:** Knight grows weary; no improvement...
 - **09:10 AM:** The knight veers off-course, blaming the innocent network latency and buffering for crimes not committed.
 - **11:30 AM:** Knight takes a day nap... zzzzz
