@@ -73,7 +73,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 - **06:00 AM:** Alas, the cries of confused users echoe. The curtain of error is raised.
 - **06:35 AM:** Our vigilant monitoring system *PagerDuty* blinks an alert, and the debugging knight wields his mind.
-- **07:40:** Initial theory: A 'Hello Holberton' overload? Attempted increased server capacity spell.
+- **07:40:** Initial theory: A 'Hello Holberton' overload? Analyzed memory and disk uasge.
 - **08:00 AM:** Knight grows weary; no improvement...
 - **09:10 AM:** The knight veers off-course, blaming the innocent network latency and buffering for crimes not committed.
 - **11:30 AM:** Knight takes a day nap... zzzzz
@@ -118,7 +118,8 @@ vagrant@vagrant:~$
 
 <br/>
 
-> "My son, you shall tread the path of containers and code, at your discretion!"
+> "My son, you shall tread the path of containers and code, at your discretion!  
+>     - Me assuring one student that the container has been fixed:
 <div align="center">
     <img src="./img/stuff.jpg" alt="stuff" width="500" height="300">
 </div>
