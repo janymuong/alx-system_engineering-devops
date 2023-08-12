@@ -119,7 +119,7 @@ vagrant@vagrant:~$
 
 <br/>
 
-> "My son, you shall tread the path of containers and code, at your discretion!  
+> "My son, you shall tread the path of containers and code, at your discretion!"  
 >     - Me assuring one student that the container has been fixed:
 <div align="center">
     <img src="./img/stuff.jpg" alt="stuff" width="500" height="300">
@@ -129,7 +129,7 @@ vagrant@vagrant:~$
 
 ## Corrective and Preventative Measures:
 This segment lists out suggested corrective measures, and preventative measures.
-The scipts with functionality described below could be wrapped within the application dependencies (as part of the server dependencies for Apache) when creating the docker image.
+The scipts with the functionality described below could be wrapped within the application dependencies (as part of the server dependencies for [Apache](https://en.wikipedia.org/wiki/Apache_HTTP_Server)) when creating the docker image.
 - Regularly audit and cleanse helper scripts to keep web server up with reboots and preserve settings.
 - Monitor connection activities and pool usage.
 - Create scripts to automatically thwart any abnormal port 80 connections.
