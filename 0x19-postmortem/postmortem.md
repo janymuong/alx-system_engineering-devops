@@ -66,7 +66,7 @@ At first, the team(me) thought it was an invalid configuration of the HTTP serve
 
 > **Pro Tip:**  
 > When servers go silent, check if they've simply embarked on a solo journey to find themselves!
-> Okay I am joking, it was not that or a misconfiguration. Apache service was not actually started. Yes, it wasn't.  
+> Okay I am joking, it was not that or a misconfiguration. Apache service was not actually started. Yes, it wasn't.
 
 <br/><br/>
 
