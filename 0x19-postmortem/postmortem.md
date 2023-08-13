@@ -21,7 +21,7 @@ By the ***On Call Person***: [Jany Muong](https://github.com/janymuong/)
 
 > **Note**  
 > The container described above can be run from this base [`image`](https://hub.docker.com/r/holbertonschool/265-0/tags) from [Docker Hub](https://hub.docker.com/):  
-> You can pull the Docker `image` above to a local machine/system and you could run a container from it and use it for your practice.  
+> You can pull the Docker `image` to a local machine/system and you could run a container from it and use it for your practice.  
 > See below for reference:  
 
 ```bash
