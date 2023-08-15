@@ -10,7 +10,8 @@ The application server will be deployed as a WSGI server implementation using `G
 ### What an Appliaction Server IS:
 An application server’s fundamental job is to provide its clients with access to business logic, which generates dynamic content; that is, it’s code that transforms data to provide the specialized functionality offered by a business, service, or application in this case the AirBnB clone. Gunicorn has capabilities for processing user requests, interacting with databases, and executing application-specific logic.
 
-> Reference [DIFF: web server vs. application server](https://www.nginx.com/resources/glossary/application-server-vs-web-server/)
+> Reference:  
+> [DIFF: web server vs. application server](https://www.nginx.com/resources/glossary/application-server-vs-web-server/)
 
 
 ## Server Information
